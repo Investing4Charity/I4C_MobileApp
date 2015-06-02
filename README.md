@@ -4,6 +4,7 @@ Repository to place all the app source code
 Prep
 - Download GitHub
 - Clone the repository -> it should appear as a folder in your pc as "I4C_MobileApp"
+  - The cloning link is on the right ------> 
 
 Instructions to upload to GitHub
 - Add file: puts it on a 'waiting list'
