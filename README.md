@@ -19,6 +19,6 @@ Advanced: Once you've mastered GitHub
 - You can investigate something called a branch which is used for experimental code.
   - It's completely isolated from the main repository (which is called the 'master branch')
     - So, if you break stuff, it won't affect the code in the master branch :)
-  - If you would like your experimental code to be part of the main code and it works, we'll have to 'merge' the branches
-- View previous commits
+  - If your experimental code works and you would like to be part of the main code, we'll have to 'merge' the branches
+- View previous commits (dunno if this would be considered hard though...)
   - Previous versions can be seen and can be compared 
