@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Loading Screen</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <style>
+            img {
+                position: relative;
+                left: 20%;
+                top: 180px;
+            }
+            #loading {
+                left: 0%;
+            }
+            p {
+                top: 200px;
+                text-align: center;
+            }
+        </style>
+        <script> 
+            // libraries stored in variables ( similar to include/import in most programming languages)
+            var mysql = require('mysql');
+            
+            // object that holds connection details
+            var connection = mysql.createConnection({
+                host : 'i4ctest.czutpqleq2ky.us-east-1.rds.amazonaws.com',
+                user : 'i4ctest',
+                password: '1234567890',
+            }); 
+            
+            console.log('Creating the http server');
+    
+            // Querying starts here
+            var strQuery = "SELECT * FROM charity_list.yots WHERE sector = 'education' ";
+            connection.query(strQuery, function(err, rows, fields) {
+                if(!err) {
+                    console.log(rows);
+                }
+                else {
+                    throw err;
+                }
+            });
+            
+            var results = rows;
+            
+            // close connection
+            connection.end();
+        
+            // Show the loading screen for 5 seconds, then go to the list of charities
+            setTimeout(function(){window.location.href='list.html'}, 5000);
+            
+        </script>
+    </head>
+    <body>
+        <img id = "i4c" src = "i4clogo.png">
+        <p>
+        <p>
+        <p>
+        <img id = "loading" src = "loading.gif">
+        
+        //ANGULAR JS CONNECTION
+        <div ng-app="myApp" ng-controller="customersCtrl"> 
+
+        <ul>
+            <li ng-repeat="x in names">
+                {{ x.Name + ', ' + x.Country }}
+            </li>
+       </ul>
+
+       </div>
+
+       <script>
+       var app = angular.module('myApp', []);
+       app.controller('customersCtrl', function($scope, $http) {
+       $http.get("http://www.w3schools.com/angular/customers.php")
+       .success(function(response) {$scope.names = response.records;});
+       });
+       </script>
+    </body>
+</html>
