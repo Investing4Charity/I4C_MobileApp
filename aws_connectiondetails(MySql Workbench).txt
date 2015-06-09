@@ -1,0 +1,4 @@
+connection name : <put anything>
+Hostname	: i4ctest2.cq5kyhm1rkqp.us-east-1.rds.amazonaws.com
+user name	: i4ctest2
+password	: 1234567890
