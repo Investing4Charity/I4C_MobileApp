@@ -2,11 +2,25 @@
 <html>
 	<body>
 		<h2>Charity List</h2>
-		<select>
+		<select onchange="print(this.value)">
+		  <!-- Always show the 1st (default) option when page loads -->
+		  <option selected="selected">Select a category</option>
 		  <option value="education">Education</option>
 		  <option value="animal">Animal</option>
 		  <option value="Environment">Environment</option>
 		  <option value="Health">Health</option>
 		</select>
+		
+		<script>
+			// Can later be a function to process user choice
+			
+			// Using pure HTML and basic JS: node/angular probably have a way to 
+			// pass data to other pages to process and display
+			function print(str){
+				var newstr = "You selected: " + str;
+				alert(newstr);
+				document.write(newstr);
+			}
+		</script>
 	</body>
 </html>
