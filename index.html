@@ -37,14 +37,6 @@
        </ul>
 
        </div>
-
-	   <!--connect to establishConnection.js-->
-       <script>
-       var app = angular.module('myApp', []);
-       app.controller('customersCtrl', function($scope, $http) {
-       $http.get("config/establishConnection.js")
-       .success(function(response) {$scope.names = response.records;});
-       });
-       </script>
+	   
     </body>
 </html>

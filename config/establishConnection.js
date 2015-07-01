@@ -18,7 +18,6 @@ connection.connect(function(err) {
 	console.log("connected as id " + connection.threadId);
 });
 
-
 // Querying starts here
 /*
 var strQuery = "SELECT * FROM charity_list.yots WHERE sector = 'education' ";
