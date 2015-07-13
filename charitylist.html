@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html ng-app>
-	<body>
+<html>
+	<body ng-app="myApp">
 		<h2>Charity List</h2>
 		<select onchange="print(this.value)">
 		  <!-- Always show the 1st (default) option when page loads -->
@@ -24,16 +24,25 @@
 		</script>
 		
 		<!--ANGULAR JS CONNECTION -->
-        <div ng-app="myApp" ng-controller="customersCtrl"> 
+        <div ng-controller="ConnectionController"> 
 
-			<ul>
-				<!--display data from node js here-->
-				<li ng-repeat="x in names">
-					{{ x.Name + ', ' + x.Country }}
-				</li>
+			<ul ng-repeat="name in names">
+			
+				<!--display data from node js to angular js here-->
+				<display-charity charity="name"></display-charity>
+				
 			</ul>
 
-       </div>
+		</div>
+	   
+		<!-- Modules -->
+		<script src="js/app.js"></script>
+			   
+		<!-- Controllers -->
+		<script src="js/controllers/MainController.js"></script>	   
+			  
+		<!-- Directives -->
+		<script src="js/directives/displayCharity.js"></script>
 	   
 	</body>
 </html>
