@@ -8,7 +8,7 @@ app.directive('displayCharity', function() {
 			charity: '='
 			
 		},
-		templateUrl: 'js/directives/displayCharity.html'
+		templateUrl: 'views/displayCharity.html'
 		
 	};
 	

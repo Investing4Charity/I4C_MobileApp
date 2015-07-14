@@ -3,7 +3,8 @@
 <html>
     <head>
         <title>Loading Screen</title>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <!-- Include Angular JS Library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
         <style>
             img {
                 position: relative;
@@ -20,15 +21,15 @@
         </style>
     </head>
     <body ng-app="myApp">
-        <img id = "i4c" src = "images/i4clogo.png">
+        <img id = "i4c" src = "img/i4clogo.png">
         <p>
         <p>
         <p>
-        <img id = "loading" src = "images/loading.gif">
+        <img id = "loading" src = "img/loading.gif">
         
         <!--ANGULAR JS CONNECTION-->
-        <div ng-controller="ConnectionController"> 
-		
+        <div ng-controller="MainController"> 
+
 		</div>
 	   
 		<!-- Modules -->
@@ -39,6 +40,9 @@
 			  
 		<!-- Directives -->
 		<script src="js/directives/displayCharity.js"></script>
+	   
+		<!-- Services -->
+		<script src="js/services/connections.js"
 	   
     </body>
 </html>

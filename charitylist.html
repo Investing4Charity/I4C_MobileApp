@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<!-- Include Angular JS Library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+	</head>
 	<body ng-app="myApp">
 		<h2>Charity List</h2>
 		<select onchange="print(this.value)">
@@ -24,14 +28,9 @@
 		</script>
 		
 		<!--ANGULAR JS CONNECTION -->
-        <div ng-controller="ConnectionController"> 
-
-			<ul ng-repeat="name in names">
-			
-				<!--display data from node js to angular js here-->
-				<display-charity charity="name"></display-charity>
-				
-			</ul>
+        <div ng-controller="MainController"> 
+			<!--display data from node js to angular js here-->		
+			<p>{{ charity.city_name }}</p>
 
 		</div>
 	   
@@ -43,6 +42,9 @@
 			  
 		<!-- Directives -->
 		<script src="js/directives/displayCharity.js"></script>
+		
+		<!-- Services -->
+		<script src="js/services/connections.js"></script>
 	   
 	</body>
 </html>
