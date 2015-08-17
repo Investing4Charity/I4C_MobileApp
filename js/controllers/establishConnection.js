@@ -34,6 +34,11 @@ connection.query(strQuery, function(err, rows, fields) {
 	}
 });
 
+//a way to output data into a file, cant output the contents of charity data into a file
+//var fs = require('fs');
+//fs.writeFileSync("test.json", JSON.stringify(rows));
+//fs.writeFileSync("test.json", "Hello world");
+
 // creating the webserver 
 // general function - http.createServer(function(request, response){body}).listen(8888, '127.0.0.1');
 // The IP Address : 127.0.0.1 is commonly referred to as the localhost server and the port can be anything I believe
@@ -51,7 +56,8 @@ http.createServer(function(req, res) {
 			res.writeHead(200, {
 				'Content-Type': 'text/html'
 			});
-			/*res.write('<!doctype html>\n<html lang="en">\n' + 
+			/*
+			res.write('<!doctype html>\n<html lang="en">\n' + 
 				'\n<meta charset="utf-8">\n<title>Test web page on node.js</title>\n' + 
 				'<style type="text/css">* {font-family:arial, sans-serif;}</style>\n' + 
 				'\n\n<h1>Testing Queries</h1>\n' + 
@@ -83,3 +89,4 @@ console.log('Server running at http://127.0.0.1:8888');
 
 // Show the loading screen for 5 seconds, then go to the list of charities
 //setTimeout(function(){window.location.href='list.html'}, 5000);
+
