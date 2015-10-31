@@ -1,11 +1,13 @@
+
 // libraries stored in variables ( similar to include/import in most programming languages)
 var mysql = require('mysql');
 var http = require("http");
+var jquery = require("jsdom");
 
 // object that holds connection details
 var connection = mysql.createConnection({
-	host : 'i4ctest2.cq5kyhm1rkqp.us-east-1.rds.amazonaws.com',
-	user : 'i4ctest2',
+	host : 'test.cu1tzf3zeuyw.ap-southeast-2.rds.amazonaws.com',
+	user : 'i4ctest3',
 	password: '1234567890',
 }); 
 
@@ -50,6 +52,7 @@ http.createServer(function(req, res) {
 	connection.query(strQuery, function(err, rows, fields) {
 		if(!err) {
 			console.log(rows);
+			formatIntoTable(rows);
 			
 			// res(response) is sort of like an object for outputting things in the web server, here we are writing the html
 			res.writeHead(200, { 'Content-Type': 'application/json'});
@@ -89,4 +92,20 @@ console.log('Server running at http://127.0.0.1:8888');
 
 // Show the loading screen for 5 seconds, then go to the list of charities
 //setTimeout(function(){window.location.href='list.html'}, 5000);
+
+function formatIntoTable(obj){
+
+	var tbl=$("<table/>").attr("id","mytable");
+$("#div1").append(tbl);
+for(var i=0;i<obj.length;i++)
+{
+    var tr="<tr>";
+    var td1="<td>"+obj[i]["id"]+"</td>";
+    var td2="<td>"+obj[i]["name"]+"</td>";
+    var td3="<td>"+obj[i]["color"]+"</td></tr>";
+    
+   $("#mytable").append(tr+td1+td2+td3); 
+  
+}
+}
 
