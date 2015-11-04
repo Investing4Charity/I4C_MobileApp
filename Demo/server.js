@@ -37,16 +37,6 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
-// var strQuery = "UPDATE charities.users SET password='abcd' WHERE name='Bob Hamilton'";
-var strQuery = "SELECT * FROM charities.users"
-connection.query(strQuery, function(err, rows, fields) {
-	if(!err) {
-		console.log(rows);	
-	}else {
-		throw err;
-	}
-});
-
 
 // This function should handle all request from client and return what client requested
 io.on('connection', function(socket){
