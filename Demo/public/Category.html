@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<link rel="stylesheet" href="css/category.css">
+		<script type="text/javascript" src="js/request.js"></script>
+		<script type="text/javascript" src="js/recieve.js"></script>
+		<script type="text/javascript" src="js/sessionStore.js"></script>
+	</head>
+	
+	<!-- Search Bar -->
+	<header>
+		<form method="get" action="searchList.html">
+			<input id="searchBar" type="text" placeholder="Search...">
+			<input id="button" type="submit" value="Search" onclick="storeName();">
+		</form>
+	</header>
+	
+	<body ng-app="myApp" onload="sendSocketCat();">
+			<!-- When user clicks on an option gets Charities  -->
+			<div id='category'>
+				<ul id="catMenu">
+					<li id='menuTitle'><a id='menuText'>Select A Category</a></li>
+				</ul>
+		<!-- Loads category from database -->
+		<script>
+			receiveCat('#catMenu');
+		</script>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/category.css">
+		<script type="text/javascript" src="js/request.js"></script>
+		<script type="text/javascript" src="js/recieve.js"></script>
+		<script type="text/javascript" src="js/request.js"></script>
+		<script type="text/javascript" src="js/recieve.js"></script>
+		<script type="text/javascript" src="js/sessionStore.js"></script>
+	</head>
+	<header>
+		<form method="get" action="searchList.html">
+			<input id="searchBar" type="text" placeholder="Search...">
+			<input id="button" type="submit" value="Search" onclick="storeName();">
+		</form>
+	</header>
+	<body ng-app="myApp">
+			<!-- When user clicks on an option gets Charities  -->
+			<div id='category'>
+				<ul>
+					<li id='menuTitle'><a id='menuText'>Enter Revenue</a></li>
+					<li><input id="revBar" type="text" placeholder="Revenue..."></li>
+				</ul>
+			</div>
+			<a href="list.html" onclick="storeRev()" class="button"/>Next</a>
+	</body>
+</html>

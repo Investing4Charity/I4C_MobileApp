@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/category.css">
+		<link rel="stylesheet" href="css/editOptions.css">
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="js/request.js"></script>
+		<script type="text/javascript" src="js/recieve.js"></script>
+		<script type="text/javascript" src="js/sessionStore.js"></script>
+	</head>
+	<header >
+		<form method="get" action="searchList.html">
+			<input id="searchBar" type="text" placeholder="Search...">
+			<input id="button" type="submit" value="Search" onclick="storeName();">
+		</form>
+		
+	</header>
+	<body ng-app="myApp" onload="getSelectedCat()">
+	
+		<h1>Charity List</h1>
+		<div id="type">
+			<h2>Charity Type:
+				<span id="category">
+				</span>
+			</h2>
+		</div>
+		
+		
+		<div id='category'>
+				<!-- Edit Options -->
+				<ul id="changeOp">
+					<li><a href="#">Edit Options</a>
+						<ul id="subMenu">
+							<li><a href="#">Change Categories</a>
+								<ul id="cat"></ul>
+							</li>
+							<li><a href="#">Enter Revenue</a>
+								<input id="revBar" type="text" placeholder="Revenue...">
+							<li>
+							<li><a onclick="storeRev()" class="button"/>Next</a></li>
+						</ul>
+						
+					</li>
+				</ul>
+				
+				<!-- List Of Charity -->
+				<ul id="result">
+				</ul>
+			</div>
+			<script>
+				<!-- Request List of category for edit option -->
+				sendSocketCat();
+				<!-- Request List Of Charity -->
+				sendSocketChar();
+				
+				<!-- Receive From database and appends -->
+				receiveChar('#result');
+				receiveCatEdit('#cat');
+			</script>
+	</body>
+</html>
