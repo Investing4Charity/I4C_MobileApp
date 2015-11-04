@@ -6,6 +6,7 @@
 		<script type="text/javascript" src="js/request.js"></script>
 		<script type="text/javascript" src="js/recieve.js"></script>
 		<script type="text/javascript" src="js/sessionStore.js"></script>
+		<script type="text/javascript" src="js/user.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
@@ -17,12 +18,13 @@
 				<h2>Login</h2>
 				<input id="usernameLogin" type="text" placeholder="Username...">
 				<input id="passwordLogin" type="password" placeholder="Password...">
-				<input id="button" type="submit" value="Login" onclick="storeName();">
+				<input id="button" type="submit" value="Login" onclick="login();">
 			</div>
 			<div id ="signUp">
-				<h2>Login</h2>
+				<h2>Sign Up</h2>
 				<input id="usernameSign" type="text" placeholder="Username...">
-				<input id="email" type="password" placeholder="email">
+				<input id="name" type="text" placeholder="Full Name">
+				<input id="email" type="text" placeholder="email">
 				<input id="passwordSign" type="password" placeholder="Password...">
 				<input id="rePassword" type="password" placeholder="Retype Password">
 				<input id="button" type="submit" value="SignUp" onclick="signUp();">
@@ -30,6 +32,7 @@
 		</div>
     </body>
 	<script>
-		<!-- loading(); -->
+		acceptLogin();
+		signUpReceive();
 	</script>
 </html>

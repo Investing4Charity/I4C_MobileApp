@@ -1,21 +1,21 @@
 // Receives List Of charities
 function receiveChar(appender){
 	var socket = io();
-		socket.on('Reply List', function(msg){
-				// No charities in selected category
-				if(msg[0] == null){
-					$('#result').append('<li id="content"><p>Oh no! No charities in this category</p></li>' + '\n');
-				
-				// Print charities in selected category
-				}else{
-					for(var i in msg){
-						$(appender).append('<li id="content"><p>' +
-									'Name: ' + msg[i].name + '<br>Sector:' + msg[i].sector +
-									'</p></li>' + '\n');
-					}
-				}
-				socket.on('disconnect', function(){})
-			});
+	socket.on('Reply List', function(msg){
+		// No charities in selected category
+		if(msg[0] == null){
+			$('#result').append('<li id="content"><p>Oh no! No charities in this category</p></li>' + '\n');
+		
+		// Print charities in selected category
+		}else{
+			for(var i in msg){
+				$(appender).append('<li id="content"><p>' +
+							'Name: ' + msg[i].name + '<br>Sector:' + msg[i].sector +
+							'</p></li>' + '\n');
+			}
+		}
+		socket.on('disconnect', function(){})
+	});
 }
 
 // Receives categories in database

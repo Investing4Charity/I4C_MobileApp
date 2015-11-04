@@ -37,8 +37,9 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
-// var strQuery = "UPDATE charities.users SET password='abcd' WHERE name='Bob Hamilton'";
+// var strQuery = "UPDATE charities.users SET username='bobham' WHERE name='Bob Hamilton'";
 var strQuery = "SELECT * FROM charities.users"
+// var strQuery = "ALTER TABLE charities.users ADD username varchar(50);"
 connection.query(strQuery, function(err, rows, fields) {
 	if(!err) {
 		console.log(rows);	
@@ -97,14 +98,42 @@ io.on('connection', function(socket){
 	
 	//Sign Up
 	socket.on('Sign Up', function(msg){ 
-		var split = msg.split(":",3);
-		var strQuery = "SELECT * FROM charities.users";
+		var split = msg.split(":",4);
+		
+		//Check if there is a person with same username
+		var strQuery = "SELECT * FROM charities.users WHERE username='" + split[0] + "'";
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
-				if(rows != null){
-					socket.emit('Reply Search', "not Valid");
+				if(rows.length > 0){
+					socket.emit('Reply SignUp', "Not Successful");
 				}else{
-				
+					var strQuery = "INSERT INTO charities.users (username, email, password, name) VALUES ('" + split[0] + "','" + split[1] + "','" + split[2] + "','" + split[3] +"')";
+					connection.query(strQuery, function(err, rows, fields) {
+						if(!err) {
+							socket.emit('Reply SignUp', split[3]);
+						}else{
+							throw err;
+						}
+					});
+				}
+			}
+			else {
+				throw err;
+			}
+		});
+	});
+	
+	 // Login
+	  socket.on('Login', function(msg){ 
+		var split = msg.split(":",2);
+		var strQuery = "SELECT * FROM charities.users WHERE username='" + split[0] + "' AND password='" +split[1]+"'";
+		connection.query(strQuery, function(err, rows, fields) {
+			if(!err) {
+				console.log(rows);
+				if(rows.length > 0){
+					socket.emit('Reply Login', split[0]);
+				}else{
+					socket.emit('Reply Login', "Not Successful");
 				}
 			}
 			else {

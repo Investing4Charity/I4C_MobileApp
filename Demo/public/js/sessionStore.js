@@ -1,7 +1,7 @@
 // animations for loading page
 function loading(){
 	setTimeout(function(){
-		document.location.href = "Category.html";
+		document.location.href = "login.html";
 	},5000);
 }
 function getSelectedCat(){
