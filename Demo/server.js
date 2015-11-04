@@ -37,6 +37,7 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
+<<<<<<< HEAD
 // var strQuery = "UPDATE charities.users SET username='bobham' WHERE name='Bob Hamilton'";
 var strQuery = "SELECT * FROM charities.users"
 // var strQuery = "ALTER TABLE charities.users ADD username varchar(50);"
@@ -48,6 +49,8 @@ connection.query(strQuery, function(err, rows, fields) {
 	}
 });
 
+=======
+>>>>>>> origin/master
 
 // This function should handle all request from client and return what client requested
 io.on('connection', function(socket){
