@@ -55,10 +55,10 @@ io.on('connection', function(socket){
 	socket.on('Get List', function(msg){
 		var index = msg.indexOf(":");
 		if(index < 0){
-			var strQuery = "SELECT * FROM charities.villa_maria WHERE sector = '" +msg +"'";
+			var strQuery = "SELECT * FROM charities.charity_list WHERE sector = '" +msg +"'";
 		}else{
 			var split = msg.split(":",2);
-			var strQuery = "SELECT * FROM charities.villa_maria WHERE sector = '" +split[0] +"' AND net_income >= '" + split[1] +"'";
+			var strQuery = "SELECT * FROM charities.charity_list WHERE sector = '" +split[0] +"' AND net_income >= '" + split[1] +"'";
 		}
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
@@ -72,7 +72,7 @@ io.on('connection', function(socket){
 	  
 	  // Get list of Categories
 	  socket.on('Get Categories', function(msg){
-		var strQuery = "SELECT DISTINCT sector FROM charities.villa_maria";
+		var strQuery = "SELECT DISTINCT sector FROM charities.charity_list";
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
 				socket.emit('Reply Categories', rows);
@@ -84,7 +84,7 @@ io.on('connection', function(socket){
 	  
 	  // Gets Results From Search
 	  socket.on('Get Search', function(msg){ 
-		var strQuery = "SELECT * FROM charities.villa_maria WHERE name LIKE '%"+ msg +"%'";
+		var strQuery = "SELECT * FROM charities.charity_list WHERE name LIKE '%"+ msg +"%'";
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
 				socket.emit('Reply Search', rows);
