@@ -9,9 +9,9 @@ function receiveChar(appender){
 		// Print charities in selected category
 		}else{
 			for(var i in msg){
-				$(appender).append('<li id="content"><p>' +
+				$(appender).append('<li class="unselected" id="'+ "'" + msg[i].name +"'"  + '" onclick="charitySelect('+ "'" + msg[i].name +"'"  + ');"><p>' +
 							'Name: ' + msg[i].name + '<br>Sector:' + msg[i].sector +
-							'</p></li>' + '\n');
+							'</p><div id="' + msg[i].name + 'Content" style="display:none"><h3>Summary</h3> salkdjhaf askjfh wifuahlfk haw ifqhfo a fhaoifuh</div></li>' + '\n');
 			}
 		}
 		socket.on('disconnect', function(){})
@@ -61,6 +61,18 @@ function receiveSearch(){
 							'</li>' + '\n');
 			}
 		}
+		socket.on('disconnect', function(){})
+	});
+}
+
+// Receives user info
+function userRev(){
+	var socket = io();
+	socket.on('Reply UserInfo', function(msg){
+		document.getElementById('name').innerHTML = msg[0].name;
+		document.getElementById('email').innerHTML = msg[0].email;
+		document.getElementById('username').innerHTML = msg[0].username;
+		document.getElementById('password').innerHTML = msg[0].password;
 		socket.on('disconnect', function(){})
 	});
 }

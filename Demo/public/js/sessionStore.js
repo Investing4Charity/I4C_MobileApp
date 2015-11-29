@@ -5,7 +5,7 @@ function loading(){
 	},5000);
 }
 function getSelectedCat(){
-	document.getElementById('category').innerHTML = sessionStorage.getItem('category');	
+	document.getElementById('currentCategory').innerHTML = sessionStorage.getItem('category');	
 }
 // Used for searching for charity
 function storeName(){
@@ -23,4 +23,8 @@ function storeRev(){
 	var val = document.getElementById("revBar").value
 	sessionStorage.setItem("revenue", val);
 	location.reload();
+}
+
+function storeCharVote(charity){
+	sessionStorage.setItem("vote", charity);
 }

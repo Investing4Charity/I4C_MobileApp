@@ -24,3 +24,37 @@ function sendSeach(){
 	var val = sessionStorage.getItem('charityName');
 	socket.emit('Get Search', val);
 }
+
+// Request user information
+function userInfo(){
+	// Send to socket for server
+	var socket = io();
+	var val = sessionStorage.getItem('user');
+	socket.emit('User Info', val);
+}
+
+function passwordChange(){
+	var password = prompt("Please enter your new password", "Password.....");
+    if (password != null) {
+		var socket = io();
+		var val = password + ":" + sessionStorage.getItem('user');;
+		socket.emit('Change Password', val);
+		alert("Password has been changed");
+		location.reload();
+    }else{
+		alert("Password can't to empty");
+	}
+}
+
+function emailChange(){
+	var email = prompt("Please enter your new email", "Email.....");
+    if (email != null) {
+		var socket = io();
+		var val = email + ":" + sessionStorage.getItem('user');;
+		socket.emit('Change Email', val);
+		alert("Email has been changed");
+		location.reload();
+    }else{
+		alert("Email can't to empty");
+	}
+}

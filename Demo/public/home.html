@@ -18,17 +18,25 @@
 			<input id="button" type="submit" value="Search" onclick="storeName();">
 		</form>
 	</header>
-	
-	<body ng-app="myApp" onload="sendSocketCat();">
-			<!-- When user clicks on an option gets Charities  -->
-			<div id='category'>
-				<ul id="catMenu">
-					<li id='menuTitle'><a id='menuText'>Select A Category</a></li>
-				</ul>
-		<!-- Loads category from database -->
+	<body onload="userInfo()">
+		<div id="user">
+			<h3>Personal Details</h3>
+			<a>Full Name: <span id="name"></span></a><p>
+			<a>Username: <span id="username"></span></a><p>
+			<a>Password: <span id="password"></span></a><a onclick="passwordChange();" class="button"/>Change Password</a><p>
+			<a>Email: <span id="email"></span></a><a onclick="emailChange()" class="button"/>Change Email</a><p><p><p>
+			<a href="Category.html" class="button"/>Find a charity</a><p>
+		</div>
 		<script>
-			receiveCat('#catMenu');
+			userRev();
 		</script>
+		
+		<div id="listCharity">
+			<ul id="result">
+				<li id='menuTitle'>
+					<a id='menuText'>Charities Voted For</a>
+				</li>
+			</ul>
 		</div>
 	</body>
 </html>

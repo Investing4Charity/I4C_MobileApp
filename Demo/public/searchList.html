@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="css/category.css">
+		<link rel="stylesheet" href="css/editOptions.css">
+		<link rel="stylesheet" href="css/voting.css">
 		<script type="text/javascript" src="js/request.js"></script>
 		<script type="text/javascript" src="js/recieve.js"></script>
 		<script type="text/javascript" src="js/sessionStore.js"></script>
@@ -10,8 +12,8 @@
 		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 	</head>
 	<header>
-		<!-- Search Bar -->
 		<form method="get" action="searchList.html">
+			<a href="home.html"><img src="img/home.png" href="Category.html" style="width:45px;height:45px"></a>
 			<input id="searchBar" type="text" placeholder="Search...">
 			<input id="button" type="submit" value="Search" onclick="storeName();">
 		</form>
@@ -21,12 +23,40 @@
 			<!-- When user clicks on an option gets Charities  -->
 			<div id='category'>
 				<ul id="result">
-					<li id='resultMenu'><a id='resultText'>Search Results</a></li>
+				<li id='menuTitle'>
+					<div class="listHead">
+							<a id='menuText'>Charity Type: <span id="currentCategory"></span></a>
+					</div>
 					
-				</ul>
+					<div class="listHead">
+						<!-- Edit Options -->
+						<ul id="changeOp">
+							<li><a href="#">Edit Options</a>
+								<ul id="subMenu">
+									<li><a href="#">Change Categories</a>
+										<ul id="cat"></ul>
+									</li>
+									<li><a href="#">Enter Revenue</a>
+										<input id="revBar" type="text" placeholder="Revenue...">
+									<li>
+									<li><a onclick="storeRev()" class="button"/>Next</a></li>
+								</ul>
+								
+							</li>
+						</ul>
+					</div>
+					<div class="listHead"><button id="voteButtonhide" type="button" onclick="vote()">Vote!</button></div>
+				</li>	
+			</ul>
 			</div>
 		
 		<script>
+			<!-- Request List of category for edit option -->
+			sendSocketCat();
+			<!-- Request List Of Charity -->
+			sendSocketChar();
+			
+			<!-- Receive From database and appends -->
 			sendSeach();
 			receiveSearch();
 		</script>

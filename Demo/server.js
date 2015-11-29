@@ -37,16 +37,17 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
-// var strQuery = "UPDATE charities.users SET username='bobham' WHERE name='Bob Hamilton'";
-//var strQuery = "SELECT * FROM charities.users"
 // var strQuery = "ALTER TABLE charities.users ADD username varchar(50);"
-//connection.query(strQuery, function(err, rows, fields) {
-//	if(!err) {
-//		console.log(rows);	
-//	}else {
-//		throw err;
-//	}
-//});
+// var strQuery = "UPDATE charities.users SET username='bobham' WHERE name='Bob Hamilton'";
+// var strQuery = "INSERT INTO charities.charity_list VALUES ('Vapur WaterBottles','Medicine',201,11231,4234,-1123,-3123,3234,0.84,0.52,34,54,0)"
+// var strQuery = "SELECT * FROM charities.charity_list WHERE name='Marcus Care' "; 
+// connection.query(strQuery, function(err, rows, fields) {
+	// if(!err) {
+		// console.log(rows);	
+	// }else {
+		// throw err;
+	// }
+// });
 
 // This function should handle all request from client and return what client requested
 io.on('connection', function(socket){
@@ -128,13 +129,60 @@ io.on('connection', function(socket){
 		var strQuery = "SELECT * FROM charities.users WHERE username='" + split[0] + "' AND password='" +split[1]+"'";
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
-				console.log(rows);
 				if(rows.length > 0){
 					socket.emit('Reply Login', split[0]);
 				}else{
 					socket.emit('Reply Login', "Not Successful");
 				}
 			}
+			else {
+				throw err;
+			}
+		});
+	});
+	
+	// Vote
+	  socket.on('Vote', function(msg){
+		var strQuery = "UPDATE charities.charity_list SET votes = votes + 1 WHERE name='" + msg +"'";
+		connection.query(strQuery, function(err, rows, fields) {
+			if(!err) {}
+			else {
+				throw err;
+			}
+		});
+	});
+	
+	//User information
+	socket.on('User Info', function(msg){
+		var strQuery = "SELECT * FROM charities.users WHERE username='" + msg + "'";
+		connection.query(strQuery, function(err, rows, fields) {
+			if(!err) {
+				console.log(rows);
+				socket.emit('Reply UserInfo', rows);
+			}else {
+				throw err;
+			}
+		});
+	});
+	
+	// Change Password
+	  socket.on('Change Password', function(msg){
+	  var split = msg.split(":",2);
+		var strQuery = "UPDATE charities.users SET password='" + split[0] + "' WHERE username='" + split[1] +"'";
+		connection.query(strQuery, function(err, rows, fields) {
+			if(!err) {}
+			else {
+				throw err;
+			}
+		});
+	});
+	
+	// Change Password
+	  socket.on('Change Email', function(msg){
+	  var split = msg.split(":",2);
+		var strQuery = "UPDATE charities.users SET email='" + split[0] + "' WHERE username='" + split[1] +"'";
+		connection.query(strQuery, function(err, rows, fields) {
+			if(!err) {}
 			else {
 				throw err;
 			}

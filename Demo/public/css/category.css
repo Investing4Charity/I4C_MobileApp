@@ -4,7 +4,8 @@ form {
 	background-color:#585858 ;
 	padding-top:10px;
 	padding-left:5px;
-	height:55px;
+	height:60px;
+	position:relative;
 }
 #searchBar, #revBar{
 	width:70%;
@@ -12,6 +13,7 @@ form {
 	padding-left:1%;
 	padding-right:1%;
 	font-size:40px;
+	position:relative;
 }
 
 .search {

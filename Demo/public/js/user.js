@@ -28,7 +28,8 @@ function signUpReceive(){
 			alert("username taken");
 		}else{
 			alert("Hi " + msg + ". Your Account has been successfully made");
-			document.location.href = "Category.html";
+			document.location.href = "home.html";
+			sessionStorage.setItem("user", username);
 		}
 		socket.on('disconnect', function(){})
 	});
@@ -53,12 +54,12 @@ function acceptLogin(){
 		var socket = io();
 		socket.on('Reply Login', function(msg){
 		// Incorrect Username or Password
-		console.log("yo")
 		if(msg == "Not Successful"){
 			alert("Incorrect Username or Password");
 		}else{
 			alert("Hi " + msg);
-			document.location.href = "Category.html";
+			sessionStorage.setItem("user", msg);
+			document.location.href = "home.html";
 		}
 	});
 }

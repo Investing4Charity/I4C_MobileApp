@@ -1,0 +1,14 @@
+.selected{
+	background-color:#d9d9d9;
+}
+.unselected{
+	background-color:white;
+}
+
+#voteButtonhide{
+	display:none;
+}
+
+#voteButtondisplay{
+	display:initial;
+}
