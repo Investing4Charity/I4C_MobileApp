@@ -1,0 +1,29 @@
+DROP TABLE charity_previous_finance;
+CREATE TABLE charity_previous_finance(
+   Sector                                        VARCHAR(18) NOT NULL
+  ,Name_of_charity                               VARCHAR(39) NOT NULL PRIMARY KEY
+  ,Financial_year                                INTEGER  NOT NULL
+  ,Gov_Grants                                    VARCHAR(7) NOT NULL
+  ,Fundrasing_income                             VARCHAR(7) NOT NULL
+  ,total_revenues                                VARCHAR(7) NOT NULL
+  ,Cost_of_fundraising                           VARCHAR(8) NOT NULL
+  ,Employee_Benefits_Exp                         VARCHAR(8) NOT NULL
+  ,Administration_Exp                            VARCHAR(7) NOT NULL
+  ,CAPEX                                         VARCHAR(7) NOT NULL
+  ,total_Expense                                 VARCHAR(8) NOT NULL
+  ,Net_Income                                    VARCHAR(6) NOT NULL
+  ,KPI_A_employee_benefittotal_revenues          NUMERIC(4,2)
+  ,KPI_Bcost_of_fundraisingfundraising_income    VARCHAR(5) NOT NULL
+  ,KPI_C_admin_costtotal_revenues                VARCHAR(4)
+  ,KPI_D_professional_service_costtotal_cost     VARCHAR(4)
+  ,KPI_E_CAPEXTotal_Revenue                      NUMERIC(5,3)
+  ,net_income_growth                             VARCHAR(8) NOT NULL
+  ,gov_funding_growth_                           VARCHAR(3)
+);
+INSERT INTO charity_previous_finance(Sector,Name_of_charity,Financial_year,Gov_Grants,Fundrasing_income,total_revenues,Cost_of_fundraising,Employee_Benefits_Exp,Administration_Exp,CAPEX,total_Expense,Net_Income,KPI_A_employee_benefittotal_revenues,KPI_Bcost_of_fundraisingfundraising_income,KPI_C_admin_costtotal_revenues,KPI_D_professional_service_costtotal_cost,KPI_E_CAPEXTotal_Revenue,net_income_growth,gov_funding_growth_) VALUES ('Children and Youth','Marist Youth Care',2013,'$20,379','-','$32,358','-','-$22,361','-','-$1,512','-$30,376','$1,981',0.69,'-','-','-',0.05,'490%','9%');
+INSERT INTO charity_previous_finance(Sector,Name_of_charity,Financial_year,Gov_Grants,Fundrasing_income,total_revenues,Cost_of_fundraising,Employee_Benefits_Exp,Administration_Exp,CAPEX,total_Expense,Net_Income,KPI_A_employee_benefittotal_revenues,KPI_Bcost_of_fundraisingfundraising_income,KPI_C_admin_costtotal_revenues,KPI_D_professional_service_costtotal_cost,KPI_E_CAPEXTotal_Revenue,net_income_growth,gov_funding_growth_) VALUES ('Children and Youth','Varity',2013,'-','$7,487','$8,274','-$3,133','-$603','-$1,438','-$2,448','-$8,310','$1,054',0.07,'0.42','0.17',NULL,0.3,'4919%',NULL);
+INSERT INTO charity_previous_finance(Sector,Name_of_charity,Financial_year,Gov_Grants,Fundrasing_income,total_revenues,Cost_of_fundraising,Employee_Benefits_Exp,Administration_Exp,CAPEX,total_Expense,Net_Income,KPI_A_employee_benefittotal_revenues,KPI_Bcost_of_fundraisingfundraising_income,KPI_C_admin_costtotal_revenues,KPI_D_professional_service_costtotal_cost,KPI_E_CAPEXTotal_Revenue,net_income_growth,gov_funding_growth_) VALUES ('Children and Youth','Childhood Fundation',2013,'-','$4,374','$10,420','-$1,883','-$6,034','-$1,338','-$328','-$10,305','$233',0.58,'0.43','0.13',NULL,0.03,'133.05%',NULL);
+INSERT INTO charity_previous_finance(Sector,Name_of_charity,Financial_year,Gov_Grants,Fundrasing_income,total_revenues,Cost_of_fundraising,Employee_Benefits_Exp,Administration_Exp,CAPEX,total_Expense,Net_Income,KPI_A_employee_benefittotal_revenues,KPI_Bcost_of_fundraisingfundraising_income,KPI_C_admin_costtotal_revenues,KPI_D_professional_service_costtotal_cost,KPI_E_CAPEXTotal_Revenue,net_income_growth,gov_funding_growth_) VALUES ('Children and Youth','Half The Sky',2013,'-','$16','$17','-$1','-','-','-','-$63','-$47',NULL,'-0.06',NULL,NULL,NULL,'-295.83%',NULL);
+INSERT INTO charity_previous_finance(Sector,Name_of_charity,Financial_year,Gov_Grants,Fundrasing_income,total_revenues,Cost_of_fundraising,Employee_Benefits_Exp,Administration_Exp,CAPEX,total_Expense,Net_Income,KPI_A_employee_benefittotal_revenues,KPI_Bcost_of_fundraisingfundraising_income,KPI_C_admin_costtotal_revenues,KPI_D_professional_service_costtotal_cost,KPI_E_CAPEXTotal_Revenue,net_income_growth,gov_funding_growth_) VALUES ('Children and Youth','Reachout Inspire Foundation',2013,'$2,803','$2,253','$5,200','-$321','-$2,712','-$272','-$34','-$4,819','$380',0.52,'0.14','0.05','0.94',0.081,'-3555%','10%');
+INSERT INTO charity_previous_finance(Sector,Name_of_charity,Financial_year,Gov_Grants,Fundrasing_income,total_revenues,Cost_of_fundraising,Employee_Benefits_Exp,Administration_Exp,CAPEX,total_Expense,Net_Income,KPI_A_employee_benefittotal_revenues,KPI_Bcost_of_fundraisingfundraising_income,KPI_C_admin_costtotal_revenues,KPI_D_professional_service_costtotal_cost,KPI_E_CAPEXTotal_Revenue,net_income_growth,gov_funding_growth_) VALUES ('Children and Youth','The smith family',2013,'$24,376','$74,956','$94,670','-$10,499','-$37,567','-','-$446','-$94,371','$1,365',0.4,'0.14',NULL,NULL,0.004,'126%','40%');
+INSERT INTO charity_previous_finance(Sector,Name_of_charity,Financial_year,Gov_Grants,Fundrasing_income,total_revenues,Cost_of_fundraising,Employee_Benefits_Exp,Administration_Exp,CAPEX,total_Expense,Net_Income,KPI_A_employee_benefittotal_revenues,KPI_Bcost_of_fundraisingfundraising_income,KPI_C_admin_costtotal_revenues,KPI_D_professional_service_costtotal_cost,KPI_E_CAPEXTotal_Revenue,net_income_growth,gov_funding_growth_) VALUES ('Children and Youth','Tweddle Child and Family Health Service',2013,'$4,080','-','$4,611','-','-$3,442','-','-$138','-$4,551','$350',0.75,'-','-','-',0.091,'313%','-4%');
