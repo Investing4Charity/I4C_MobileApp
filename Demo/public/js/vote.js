@@ -26,14 +26,28 @@ function charitySelect(charity){
 }
 
 function vote(){
-	console.log(sessionStorage.getItem('vote'));
 	if(sessionStorage.getItem('vote') == null){
 		alert('Please select another charity to vote for');
 	}else if(confirm('Are you sure you want to vote for ' + sessionStorage.getItem('vote') + '?')){
 		var socket = io();
-		socket.emit('Vote', sessionStorage.getItem('vote'));
-		alert("Thank You For Voting")
+		checkConnection();
+		var val = sessionStorage.getItem('vote') + ":" + sessionStorage.getItem('user');
+		console.log(val);
+		socket.emit('Vote', val);
 	}else{
 		alert('Please select another charity to vote for');
 	}
+}
+
+function voteConfirmed(){
+	var socket = io();
+		socket.on('Reply Vote', function(msg){
+			if(msg == "Successful Vote"){
+				alert("Thank you for voting!");
+			}else if(msg == "Already Voted"){
+				alert("You have already voted for this charity. Please choose another charity to vote for.");
+			}else {
+				alert("There was an error. Please vote again.");
+			}
+		});
 }

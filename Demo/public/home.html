@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="css/category.css">
+		<link rel="stylesheet" href="css/editOptions.css">
+		<link rel="stylesheet" href="css/voting.css">
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-		<link rel="stylesheet" href="css/category.css">
 		<script type="text/javascript" src="js/request.js"></script>
 		<script type="text/javascript" src="js/recieve.js"></script>
 		<script type="text/javascript" src="js/sessionStore.js"></script>
+		<script type="text/javascript" src="js/vote.js"></script>
 	</head>
 	
 	<!-- Search Bar -->
 	<header>
-		<form method="get" action="searchList.html">
-			<a href="home.html"><img src="img/home.png" href="Category.html" style="width:45px;height:45px"></a>
+		<form method="get" action="list.html">
+			<a href="home.html"><img src="img/home.png" style="width:45px;height:45px"></a>
 			<input id="searchBar" type="text" placeholder="Search...">
 			<input id="button" type="submit" value="Search" onclick="storeName();">
 		</form>
@@ -29,9 +32,11 @@
 		</div>
 		<script>
 			userRev();
+			sendVoteChar();
+			receiveVoteChar();
 		</script>
 		
-		<div id="listCharity">
+		<div id="category">
 			<ul id="result">
 				<li id='menuTitle'>
 					<a id='menuText'>Charities Voted For</a>

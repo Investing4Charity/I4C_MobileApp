@@ -1,18 +1,17 @@
 // Receives List Of charities
-function receiveChar(appender){
+function receiveChar(){
 	var socket = io();
 	socket.on('Reply List', function(msg){
 		// No charities in selected category
-		console.log(msg);
 		if(msg[0] == null){
 			$('#result').append('<li id="content"><p>Oh no! No charities in this category</p></li>' + '\n');
 		
 		// Print charities in selected category
 		}else{
 			for(var i in msg){
-				$(appender).append('<li class="unselected" id="'+ "'" + msg[i].name +"'"  + '" onclick="charitySelect('+ "'" + msg[i].name +"'"  + ');"><p>' +
-							'Name: ' + msg[i].name + '<br>Sector:' + msg[i].sector +
-							'</p><div id="' + msg[i].name + 'Content" style="display:none"><h3>Summary</h3> salkdjhaf askjfh wifuahlfk haw ifqhfo a fhaoifuh</div></li>' + '\n');
+				$('#result').append('<li class="unselected" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
+							'Name: ' + msg[i].Name_of_charity + '<br>Sector:' + msg[i].Sector +
+							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none"><h3>Summary</h3> This is a summary of ' + msg[i].Name_of_charity + '</div></li>' + '\n');
 			}
 		}
 		socket.on('disconnect', function(){})
@@ -25,8 +24,8 @@ function receiveCat(appender){
 	socket.on('Reply Categories', function(msg){
 		// Print category
 			for(var i in msg){
-				$(appender).append('<li><a id="content" onclick="storeCat('+ "'" + msg[i].sector +"'"  + ');" href="revenue.html">' 
-				+ msg[i].sector + '</a></li>' + '\n');
+				$(appender).append('<li><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');" href="revenue.html">' 
+				+ msg[i].Sector + '</a></li>' + '\n');
 			}
 		socket.on('disconnect', function(){})
 	});
@@ -38,8 +37,8 @@ function receiveCatEdit(appender){
 	socket.on('Reply Categories', function(msg){
 		// Print category
 			for(var i in msg){
-				$(appender).append('<li><a id="content" onclick="storeCat('+ "'" + msg[i].sector +"'"  + ');">' 
-				+ msg[i].sector + '</a></li>' + '\n');
+				$(appender).append('<li><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');">' 
+				+ msg[i].Sector + '</a></li>' + '\n');
 			}
 		socket.on('disconnect', function(){})
 	});
@@ -57,8 +56,8 @@ function receiveSearch(){
 		// Print charities that contained seach value
 		}else{
 			for(var i in msg){
-				$('#result').append('<li id="'+ msg[i].name +'"><a>' +
-							'Name: ' + msg[i].name + '<br>Sector:' + msg[i].sector +
+				$('#result').append('<li id="'+ msg[i].Name_of_charity +'"><a>' +
+							'Name: ' + msg[i].Name_of_charity + '<br>Sector:' + msg[i].Sector +
 							'</li>' + '\n');
 			}
 		}
@@ -74,6 +73,25 @@ function userRev(){
 		document.getElementById('email').innerHTML = msg[0].email;
 		document.getElementById('username').innerHTML = msg[0].username;
 		document.getElementById('password').innerHTML = msg[0].password;
+		socket.on('disconnect', function(){})
+	});
+}
+
+// Receives user voted charities
+function receiveVoteChar(){
+	var socket = io();
+	socket.on('Reply Voted List', function(msg){
+		// No charities in selected category
+		if(msg[0] == null){
+			$('#result').append('<li id="content"><p>No voted charities yet. Go vote for some</p></li>' + '\n');
+		// Print charities in selected category
+		}else{
+			for(var i in msg){
+				$('#result').append('<li class="unselected" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
+							'Name: ' + msg[i].Name_of_charity + '<br>Sector:' + msg[i].Sector +
+							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none"><h3>Summary</h3> This is a summary of ' + msg[i].Name_of_charity + '</div></li>' + '\n');
+			}
+		}
 		socket.on('disconnect', function(){})
 	});
 }

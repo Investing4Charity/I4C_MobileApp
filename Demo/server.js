@@ -38,16 +38,17 @@ app.get('/', function(req, res){
 });
 
 // var strQuery = "ALTER TABLE charities.users ADD username varchar(50);"
-// var strQuery = "UPDATE charities.users SET username='bobham' WHERE name='Bob Hamilton'";
+// var strQuery = "UPDATE charities.charity_list SET vote_count=0";
 // var strQuery = "INSERT INTO charities.charity_list VALUES ('Vapur WaterBottles','Medicine',201,11231,4234,-1123,-3123,3234,0.84,0.52,34,54,0)"
-var strQuery = "SELECT * FROM charities.charity_testing"; 
-connection.query(strQuery, function(err, rows, fields) {
-	if(!err) {
-		console.log(rows);	
-	}else {
-		throw err;
-	}
-});
+// var strQuery = "ALTER TABLE charities.charity_list MODIFY vote_count INT DEFAULT 0"; 
+// var strQuery = "SELECT * FROM charities.charity_list"
+// connection.query(strQuery, function(err, rows, fields) {
+	// if(!err) {
+		// console.log(rows);	
+	// }else {
+		// throw err;
+	// }
+// });
 
 // This function should handle all request from client and return what client requested
 io.on('connection', function(socket){
@@ -56,10 +57,10 @@ io.on('connection', function(socket){
 	socket.on('Get List', function(msg){
 		var index = msg.indexOf(":");
 		if(index < 0){
-			var strQuery = "SELECT * FROM charities.charity_list WHERE sector = '" +msg +"'";
+			var strQuery = "SELECT * FROM charities.charity_list WHERE Sector = '" +msg +"'";
 		}else{
 			var split = msg.split(":",2);
-			var strQuery = "SELECT * FROM charities.charity_list WHERE sector = '" +split[0] +"' AND net_income >= '" + split[1] +"'";
+			var strQuery = "SELECT * FROM charities.charity_list WHERE Sector = '" +split[0] +"' AND total_revenues >= '" + split[1] +"'";
 		}
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
@@ -73,7 +74,7 @@ io.on('connection', function(socket){
 	  
 	  // Get list of Categories
 	  socket.on('Get Categories', function(msg){
-		var strQuery = "SELECT DISTINCT sector FROM charities.charity_list";
+		var strQuery = "SELECT DISTINCT Sector FROM charities.charity_list";
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
 				socket.emit('Reply Categories', rows);
@@ -85,10 +86,10 @@ io.on('connection', function(socket){
 	  
 	  // Gets Results From Search
 	  socket.on('Get Search', function(msg){ 
-		var strQuery = "SELECT * FROM charities.charity_list WHERE name LIKE '%"+ msg +"%'";
+		var strQuery = "SELECT * FROM charities.charity_list WHERE Name_of_charity LIKE '%"+ msg +"%'";
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
-				socket.emit('Reply Search', rows);
+				socket.emit('Reply List', rows);
 			}
 			else {
 				throw err;
@@ -143,10 +144,35 @@ io.on('connection', function(socket){
 	
 	// Vote
 	  socket.on('Vote', function(msg){
-		var strQuery = "UPDATE charities.charity_list SET votes = votes + 1 WHERE name='" + msg +"'";
+		var split = msg.split(":",2);
+		// CHecks if user has already voted for this charity
+		var strQuery = "SELECT user FROM charities.user_votes WHERE EXISTS(SELECT 1 FROM charities.user_votes WHERE user ='"+ split[1] + "' AND charity ='" + split[0]+ "')";
 		connection.query(strQuery, function(err, rows, fields) {
-			if(!err) {}
-			else {
+			if(!err) {
+				if(rows[0] != null){
+					socket.emit('Reply Vote', "Already Voted");
+				}else{
+					//increments vote count
+					var strQuery = "UPDATE charities.charity_list SET vote_count = vote_count + 1 WHERE Name_of_charity ='" + split[0] +"'";
+					connection.query(strQuery, function(err, rows, fields) {
+						if(!err) {
+							// Stores user voted to charity in table
+							var strQuery = "INSERT INTO charities.user_votes VALUES ('" + split[1] + "','" + split[0]+"')";
+							connection.query(strQuery, function(err, rows, fields) {
+								if(!err) {
+									socket.emit('Reply Vote', "Successful Vote");
+								}
+								else {
+									throw err;
+								}
+							});
+						
+						}else {
+							throw err;
+						}
+					});
+				}
+			}else {
 				throw err;
 			}
 		});
@@ -157,7 +183,6 @@ io.on('connection', function(socket){
 		var strQuery = "SELECT * FROM charities.users WHERE username='" + msg + "'";
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
-				console.log(rows);
 				socket.emit('Reply UserInfo', rows);
 			}else {
 				throw err;
@@ -177,7 +202,7 @@ io.on('connection', function(socket){
 		});
 	});
 	
-	// Change Password
+	// Change Email
 	  socket.on('Change Email', function(msg){
 	  var split = msg.split(":",2);
 		var strQuery = "UPDATE charities.users SET email='" + split[0] + "' WHERE username='" + split[1] +"'";
@@ -189,12 +214,12 @@ io.on('connection', function(socket){
 		});
 	});
 	
-	// Test Logo
-	  socket.on('Get Logo', function(msg){
-		var strQuery = "SELECT * FROM charities.charity_testing WHERE Name_of_charity='Varity'";
+	// Get voted charity list
+	  socket.on('Get Voted Charities', function(msg){
+		var strQuery = "Select * FROM charities.user_votes v INNER JOIN charities.charity_list c on(v.charity = c.Name_of_charity) WHERE (v.user ='"+ msg + "')";
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
-				socket.emit('Reply Logo', rows);
+				socket.emit('Reply Voted List', rows);
 			}
 			else {
 				throw err;

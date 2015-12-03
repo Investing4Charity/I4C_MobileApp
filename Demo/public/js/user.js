@@ -16,13 +16,15 @@ function signUp(){
 	}else{
 		var msg = username + ":" + email + ":" + password + ":" + name;
 		var socket = io();
+		checkConnection();
 		socket.emit('Sign Up', msg);
 	}
 }
 
 function signUpReceive(){
+	checkConnection();
 	var socket = io();
-		socket.on('Reply SignUp', function(msg){
+	socket.on('Reply SignUp', function(msg){
 		// User Name Taken
 		if(msg == "Not Successful"){
 			alert("username taken");
@@ -45,6 +47,7 @@ function login(){
 		alert("Enter a password");
 	}else{
 		var msg = username + ":" + password;
+		checkConnection();
 		var socket = io();
 		socket.emit('Login', msg);
 	}
