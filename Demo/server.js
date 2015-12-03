@@ -40,14 +40,14 @@ app.get('/', function(req, res){
 // var strQuery = "ALTER TABLE charities.users ADD username varchar(50);"
 // var strQuery = "UPDATE charities.users SET username='bobham' WHERE name='Bob Hamilton'";
 // var strQuery = "INSERT INTO charities.charity_list VALUES ('Vapur WaterBottles','Medicine',201,11231,4234,-1123,-3123,3234,0.84,0.52,34,54,0)"
-// var strQuery = "SELECT * FROM charities.charity_list WHERE name='Marcus Care' "; 
-// connection.query(strQuery, function(err, rows, fields) {
-	// if(!err) {
-		// console.log(rows);	
-	// }else {
-		// throw err;
-	// }
-// });
+var strQuery = "SELECT * FROM charities.charity_testing"; 
+connection.query(strQuery, function(err, rows, fields) {
+	if(!err) {
+		console.log(rows);	
+	}else {
+		throw err;
+	}
+});
 
 // This function should handle all request from client and return what client requested
 io.on('connection', function(socket){
@@ -183,6 +183,19 @@ io.on('connection', function(socket){
 		var strQuery = "UPDATE charities.users SET email='" + split[0] + "' WHERE username='" + split[1] +"'";
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {}
+			else {
+				throw err;
+			}
+		});
+	});
+	
+	// Test Logo
+	  socket.on('Get Logo', function(msg){
+		var strQuery = "SELECT * FROM charities.charity_testing WHERE Name_of_charity='Varity'";
+		connection.query(strQuery, function(err, rows, fields) {
+			if(!err) {
+				socket.emit('Reply Logo', rows);
+			}
 			else {
 				throw err;
 			}

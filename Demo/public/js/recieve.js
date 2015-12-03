@@ -3,6 +3,7 @@ function receiveChar(appender){
 	var socket = io();
 	socket.on('Reply List', function(msg){
 		// No charities in selected category
+		console.log(msg);
 		if(msg[0] == null){
 			$('#result').append('<li id="content"><p>Oh no! No charities in this category</p></li>' + '\n');
 		

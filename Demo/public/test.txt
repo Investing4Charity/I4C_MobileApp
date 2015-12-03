@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login or Sign Up</title>
+		<link rel="stylesheet" href="css/loading.css">
+		<script type="text/javascript" src="js/request.js"></script>
+		<script type="text/javascript" src="js/recieve.js"></script>
+		<script type="text/javascript" src="js/sessionStore.js"></script>
+		<script type="text/javascript" src="js/user.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	</head>
+    <body ng-app="myApp">
+		<div id="loadingPage">
+			<img id = "i4c" src = "img/i4clogo.png">
+			<div id ="login">
+				<h2>Login</h2>
+				<input id="usernameLogin" type="text" placeholder="Username...">
+				<input id="passwordLogin" type="password" placeholder="Password...">
+				<input id="button" type="submit" value="Login" onclick="login();">
+			</div>
+			<div id ="signUp">
+				<h2>Sign Up</h2>
+				<input id="usernameSign" type="text" placeholder="Username...">
+				<input id="name" type="text" placeholder="Full Name">
+				<input id="email" type="text" placeholder="email">
+				<input id="passwordSign" type="password" placeholder="Password...">
+				<input id="rePassword" type="password" placeholder="Retype Password">
+				<input id="button" type="submit" value="SignUp" onclick="signUp();">
+			</div>
+		</div>
+    </body>
+	<script>
+		acceptLogin();
+		signUpReceive();
+	</script>
+</html>
