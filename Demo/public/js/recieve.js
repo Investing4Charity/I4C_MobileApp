@@ -9,9 +9,19 @@ function receiveChar(){
 		// Print charities in selected category
 		}else{
 			for(var i in msg){
+				var src = msg[i].logo;
+				if(src == null){
+					src = "img/Nologo.gif"
+				}
 				$('#result').append('<li class="unselected" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
 							'Name: ' + msg[i].Name_of_charity + '<br>Sector:' + msg[i].Sector +
-							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none"><h3>Summary</h3> This is a summary of ' + msg[i].Name_of_charity + '</div></li>' + '\n');
+							'<img src="' + src + '" alt="Image Not Found" height="50px" width="auto">' +
+							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none">' +
+							'<div class="summary"><h3>Summary</h3> This is a summary of ' + msg[i].Name_of_charity + '</div>'+
+							'<div class="Revenue"><b>Revenue: </b>' + msg[i].total_revenues +'</div>' + 
+							'<div class="Kpi"><b>KPI: </b>' + msg[i].KPI_E_CAPEXTotal_Revenue + '</div>' +
+							'<div class="Grants"><b>Grants: </b>' + msg[i].Gov_Grants +'</div>' + 
+							'<div class="Growth"><b>Growth: </b>' + msg[i].net_income_growth + '</div></div></li>' + '\n')
 			}
 		}
 		socket.on('disconnect', function(){})
@@ -87,9 +97,19 @@ function receiveVoteChar(){
 		// Print charities in selected category
 		}else{
 			for(var i in msg){
+				var src = msg[i].logo;
+				if(src == null){
+					src = "img/Nologo.gif"
+				}
 				$('#result').append('<li class="unselected" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
 							'Name: ' + msg[i].Name_of_charity + '<br>Sector:' + msg[i].Sector +
-							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none"><h3>Summary</h3> This is a summary of ' + msg[i].Name_of_charity + '</div></li>' + '\n');
+							'<img src="' + src + '" alt="Image Not Found" height="50px" width="auto">' +
+							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none">' +
+							'<div class="summary"><h3>Summary</h3> This is a summary of ' + msg[i].Name_of_charity + '</div>'+
+							'<div class="Revenue"><b>Revenue: </b>' + msg[i].total_revenues +'</div>' + 
+							'<div class="Kpi"><b>KPI: </b>' + msg[i].KPI_E_CAPEXTotal_Revenue + '</div>' +
+							'<div class="Grants"><b>Grants: </b>' + msg[i].Gov_Grants +'</div>' + 
+							'<div class="Growth"><b>Growth: </b>' + msg[i].net_income_growth + '</div></div></li>' + '\n')
 			}
 		}
 		socket.on('disconnect', function(){})
