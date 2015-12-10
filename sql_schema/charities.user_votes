@@ -1,8 +1,7 @@
-DROP TABLE IF EXISTS charities.user_votes;
-CREATE TABLE charities.user_votes (
+CREATE TABLE I4CTest.user_votes(
 	user VARCHAR(50) NOT NULL,
     charity VARCHAR(50) NOT NULL,
     CONSTRAINT pk_user_vote PRIMARY KEY (user,charity),
-    CONSTRAINT FOREIGN KEY (user) REFERENCES charities.users(username),
-    CONSTRAINT FOREIGN KEY (charity) REFERENCES charities.charity_list(Name_of_charity)
+    CONSTRAINT FOREIGN KEY (user) REFERENCES I4CTest.users(username),
+    CONSTRAINT FOREIGN KEY (charity) REFERENCES I4CTest.charity_list(Name_of_charity)
 );
