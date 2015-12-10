@@ -30,8 +30,9 @@ function signUpReceive(){
 			alert("username taken");
 		}else{
 			alert("Hi " + msg + ". Your Account has been successfully made");
-			document.location.href = "home.html";
+			var username = document.getElementById('usernameSign').value;
 			sessionStorage.setItem("user", username);
+			document.location.href = "home.html";
 		}
 		socket.on('disconnect', function(){})
 	});
@@ -40,7 +41,6 @@ function signUpReceive(){
 function login(){
 	var username = document.getElementById('usernameLogin').value;
 	var password = document.getElementById('passwordLogin').value;
-	console.log(password);
 	if(username.length <= 0){
 		alert("Enter a username");
 	}else if(password.length <= 0){

@@ -38,18 +38,6 @@ app.get('/', function(req, res){
   res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
-// var strQuery = "ALTER TABLE " + databaseName + ".users ADD username varchar(50);"
-// var strQuery = "UPDATE " + databaseName + ".charity_list SET vote_count=0";
-// var strQuery = "INSERT INTO " + databaseName + ".charity_list VALUES ('Vapur WaterBottles','Medicine',201,11231,4234,-1123,-3123,3234,0.84,0.52,34,54,0)"
-// var strQuery = "ALTER TABLE " + databaseName + ".charity_list MODIFY vote_count INT DEFAULT 0"; 
-// var strQuery = "SELECT * FROM " + databaseName + ".charity_list"
-// connection.query(strQuery, function(err, rows, fields) {
-	// if(!err) {
-		// console.log(rows);	
-	// }else {
-		// throw err;
-	// }
-// });
 
 // This function should handle all request from client and return what client requested
 io.on('connection', function(socket){
@@ -61,10 +49,11 @@ io.on('connection', function(socket){
 			var strQuery = "SELECT * FROM " + databaseName + ".charity_list WHERE Sector = '" +msg +"'";
 		}else{
 			var split = msg.split(":",2);
-			var strQuery = "SELECT * FROM " + databaseName + ".charity_list WHERE Sector = '" +split[0] +"' AND total_revenues >= '" + split[1] +"'";
+			var strQuery = "SELECT * FROM " + databaseName + ".charity_list WHERE Sector = '" + split[0] +"' AND total_revenues >= " + Number(split[1]);
 		}
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
+				console.log(Number(split[1]));
 				socket.emit('Reply List', rows);
 			}
 			else {

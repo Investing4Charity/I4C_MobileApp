@@ -79,6 +79,7 @@ function receiveSearch(){
 function userRev(){
 	var socket = io();
 	socket.on('Reply UserInfo', function(msg){
+		console.log(msg);
 		document.getElementById('name').innerHTML = msg[0].name;
 		document.getElementById('email').innerHTML = msg[0].email;
 		document.getElementById('username').innerHTML = msg[0].username;
