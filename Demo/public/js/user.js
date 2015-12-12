@@ -5,14 +5,15 @@ function signUp(){
 	var password = document.getElementById('passwordSign').value;
 	var rePassword = document.getElementById('rePassword').value;
 	var name = document.getElementById('name').value;
-	if(username == null){
+
+	if(!username){
 		alert("Enter a username");
-	}else if(password == null){
+	}else if(!password){
 		alert("Cannot have an empty password");
 	}else if(rePassword != password){
 		alert("passwords are not the same");
-	}else if(name == null){
-		alert("You can't have no name")
+	}else if(!name){
+		alert("You can't have no name");
 	}else{
 		var msg = username + ":" + email + ":" + password + ":" + name;
 		var socket = io();

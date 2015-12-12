@@ -94,7 +94,7 @@ function receiveVoteChar(){
 	socket.on('Reply Voted List', function(msg){
 		// No charities in selected category
 		if(msg[0] == null){
-			$('#result').append('<li id="content"><p>No voted charities yet. Go vote for some</p></li>' + '\n');
+			$('#result').append('<li class="list-group-item" id="content"><p>No voted charities yet. Go vote for some</p></li>' + '\n');
 		// Print charities in selected category
 		}else{
 			for(var i in msg){

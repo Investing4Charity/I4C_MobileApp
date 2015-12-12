@@ -10,9 +10,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<!-- Latest compiled JavaScript -->
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<!-- <link rel="stylesheet" href="css/category.css"> -->
-		<!-- <link rel="stylesheet" href="css/editOptions.css"> -->
-		<!-- <link rel="stylesheet" href="css/voting.css"> -->
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
@@ -23,7 +20,7 @@
 	</head>
 
 	<style>
-		#votedForHeading{
+		#votedForHeading, #findACharityBtn{
 			background: green;
 		}
 	</style>
@@ -53,7 +50,7 @@
 						<p><b>Email: </b><span id="email"></span></p>
 					</div>
 					<div class="col-md-3 col-sm-6 col-xs-6">
-						<p><a href="Category.html" class="btn btn-primary btn-lg"/>Find a charity</a></p>
+						<p><a href="Category.html" id="findACharityBtn" class="btn btn-primary btn-lg"/>Find a charity</a></p>
 						<p><button onclick="passwordChange();" class="btn btn-primary btn-lg"/>Change Password</button></p>
 						<p><button onclick="emailChange()" class="btn btn-primary btn-lg"/>Change Email</button></p>
 					</div>

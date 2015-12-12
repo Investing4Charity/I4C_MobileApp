@@ -15,19 +15,27 @@
       <!-- Latest compiled JavaScript -->
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-  		<link rel="stylesheet" href="css/loading.css">
+  		<!-- <link rel="stylesheet" href="css/loading.css"> -->
   		<script type="text/javascript" src="js/request.js"></script>
   		<script type="text/javascript" src="js/recieve.js"></script>
   		<script type="text/javascript" src="js/sessionStore.js"></script>
 	</head>
+  <style>
+  .center-block {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+   }
+  </style>
   <div class="container">
-    <body ng-app="myApp" onload="loading();">
-  		<div id="loadingPage">
-        <div class="col-md-12 text-center">
-	        <img class="img-responsive" id = "i4c" src = "img/i4clogo.png" style="align:center">
-  		    <img class="img-responsive" id = "loading" src = "img/loading.gif">
-        </div>
-  		</div>
+    <body onload="loading();">
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4"></div>
+    		<div class="col-xs-3 col-sm-3 col-md-3" id="loadingPage">
+          <img id = "i4c" src = "img/i4clogo.png">
+  		    <img id = "loading" src = "img/loading.gif">
+    		</div>
+      </div>
     </body>
   </div>
 </html>
