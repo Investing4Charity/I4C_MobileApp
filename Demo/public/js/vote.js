@@ -1,20 +1,20 @@
 // Selects Charities
 function charitySelect(charity){
 	charityName = "'" + charity + "'";
-	
+
 	// Gets all elements in selected class and changes them to unselected class
 	var array = document.getElementsByClassName("selected");
 	for(var i = 0; i < array.length; i++){
-	
+
 		// Since id is returned surrounded by quotes we must remove the quotes
 		var temp = array[i].id;
 		var hide = temp.substring(1,temp.length - 1) + "Content"
-		
+
 		// Hides the information
 		document.getElementById(hide).style.display = 'none';
-		array[i].className = "unselected";
+		array[i].className = "list-group-item";
 	}
-	
+
 	// Selects user selected charity and shows information
 	document.getElementById(charityName).className = "selected";
 	var content = charity + "Content";

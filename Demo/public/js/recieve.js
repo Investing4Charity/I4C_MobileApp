@@ -5,7 +5,7 @@ function receiveChar(){
 		// No charities in selected category
 		if(msg[0] == null){
 			$('#result').append('<li id="content"><p>Oh no! No charities in this category</p></li>' + '\n');
-		
+
 		// Print charities in selected category
 		}else{
 			for(var i in msg){
@@ -13,14 +13,14 @@ function receiveChar(){
 				if(src == null){
 					src = "img/Nologo.gif"
 				}
-				$('#result').append('<li class="unselected" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
+				$('#result').append('<li class="list-group-item active" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
 							'Name: ' + msg[i].Name_of_charity + '<br>Sector:' + msg[i].Sector +
 							'<img src="' + src + '" alt="Image Not Found" height="50px" width="auto">' +
 							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none">' +
 							'<div class="summary"><h3>Summary</h3> This is a summary of ' + msg[i].Name_of_charity + '</div>'+
-							'<div class="Revenue"><b>Revenue: </b>' + msg[i].total_revenues +'</div>' + 
+							'<div class="Revenue"><b>Revenue: </b>' + msg[i].total_revenues +'</div>' +
 							'<div class="Kpi"><b>KPI: </b>' + msg[i].KPI_E_CAPEXTotal_Revenue + '</div>' +
-							'<div class="Grants"><b>Grants: </b>' + msg[i].Gov_Grants +'</div>' + 
+							'<div class="Grants"><b>Grants: </b>' + msg[i].Gov_Grants +'</div>' +
 							'<div class="Growth"><b>Growth: </b>' + msg[i].net_income_growth + '</div></div></li>' + '\n')
 			}
 		}
@@ -34,7 +34,7 @@ function receiveCat(appender){
 	socket.on('Reply Categories', function(msg){
 		// Print category
 			for(var i in msg){
-				$(appender).append('<li><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');" href="revenue.html">' 
+				$(appender).append('<li><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');" href="revenue.html">'
 				+ msg[i].Sector + '</a></li>' + '\n');
 			}
 		socket.on('disconnect', function(){})
@@ -47,7 +47,7 @@ function receiveCatEdit(appender){
 	socket.on('Reply Categories', function(msg){
 		// Print category
 			for(var i in msg){
-				$(appender).append('<li><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');">' 
+				$(appender).append('<li><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');">'
 				+ msg[i].Sector + '</a></li>' + '\n');
 			}
 		socket.on('disconnect', function(){})
@@ -62,7 +62,7 @@ function receiveSearch(){
 		// No charities
 		if(msg[0] == null){
 			$('#result').append('<li><a>'+'There is no such charity</a></li>' + '\n');
-		
+
 		// Print charities that contained seach value
 		}else{
 			for(var i in msg){
@@ -101,14 +101,14 @@ function receiveVoteChar(){
 				if(src == null){
 					src = "img/Nologo.gif"
 				}
-				$('#result').append('<li class="unselected" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
+				$('#result').append('<li class="list-group-item" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
 							'Name: ' + msg[i].Name_of_charity + '<br>Sector:' + msg[i].Sector +
 							'<img src="' + src + '" alt="Image Not Found" height="50px" width="auto">' +
 							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none">' +
 							'<div class="summary"><h3>Summary</h3> This is a summary of ' + msg[i].Name_of_charity + '</div>'+
-							'<div class="Revenue"><b>Revenue: </b>' + msg[i].total_revenues +'</div>' + 
+							'<div class="Revenue"><b>Revenue: </b>' + msg[i].total_revenues +'</div>' +
 							'<div class="Kpi"><b>KPI: </b>' + msg[i].KPI_E_CAPEXTotal_Revenue + '</div>' +
-							'<div class="Grants"><b>Grants: </b>' + msg[i].Gov_Grants +'</div>' + 
+							'<div class="Grants"><b>Grants: </b>' + msg[i].Gov_Grants +'</div>' +
 							'<div class="Growth"><b>Growth: </b>' + msg[i].net_income_growth + '</div></div></li>' + '\n')
 			}
 		}

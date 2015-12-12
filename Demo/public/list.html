@@ -19,15 +19,15 @@
 			<input id="button" type="submit" value="Search" onclick="storeName();">
 		</form>
 	</header>
-	<body ng-app="myApp" onload="getSelectedCat()">		
-		<div id='category'>
+	<body ng-app="myApp" onload="getSelectedCat()">
+		<div class="media" id='category'>
 			<!-- List Of Charity -->
-			<ul id="result">
+			<ul class="list-group" id="result">
 				<li id='menuTitle'>
 					<div class="listHead">
 							<a id='menuText'>Charity Type: <span id="currentCategory"></span></a>
 					</div>
-					
+
 					<div class="listHead">
 						<!-- Edit Options -->
 						<ul id="changeOp">
@@ -41,12 +41,12 @@
 									<li>
 									<li><a onclick="storeRev()" class="button"/>Next</a></li>
 								</ul>
-								
+
 							</li>
 						</ul>
 					</div>
 					<div class="listHead"><button id="voteButtonhide" type="button" onclick="vote()">Vote!</button></div>
-				</li>	
+				</li>
 			</ul>
 		</div>
 		<script>
@@ -54,7 +54,7 @@
 			sendSocketCat();
 			<!-- Request List Of Charity -->
 			sendSocketChar();
-			
+
 			<!-- Receive From database and appends -->
 			receiveChar();
 			receiveCatEdit('#cat');

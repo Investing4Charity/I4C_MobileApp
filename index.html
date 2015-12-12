@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>Loading Screen</title>
         <!-- Include Angular JS Library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+		    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- Modules -->
+        <script src="js/app.js"></script>
+        <!-- Controllers -->
+        <script src="js/controllers/MainController.js"></script>
+        <!-- Directives -->
+        <script src="js/directives/displayCharity.js"></script>
+        <!-- Services -->
+        <script src="js/services/connections.js"></script>
+
         <style>
-            img {
+            /*img {
                 position: relative;
                 left: 20%;
                 top: 180px;
@@ -17,70 +35,19 @@
             p {
                 top: 200px;
                 text-align: center;
-            }
+            }*/
         </style>
     </head>
     <body ng-app="myApp">
-        <img id = "i4c" src = "img/i4clogo.png">
-        <p>
-        <p>
-        <p>
-        <img id = "loading" src = "img/loading.gif">
-        
-        <!--ANGULAR JS CONNECTION-->
-        <div ng-controller="MainController"> 
+        <div class="container-fluid">
+          <img class="img-thumbnail" data-src="holder.js/200x200" id = "i4c" src = "img/i4clogo.png">
+          <img class="img-thumbnail" data-src="holder.js/200x200" id = "loading" src = "img/loading.gif">
 
-		</div>
-	   
-		<!-- Modules -->
-		<script src="js/app.js"></script>
-			   
-		<!-- Controllers -->
-		<script src="js/controllers/MainController.js"></script>	   
-			  
-		<!-- Directives -->
-		<script src="js/directives/displayCharity.js"></script>
-	   
-		<!-- Services -->
-		<script src="js/services/connections.js"
-	   
+          <!--ANGULAR JS CONNECTION-->
+          <div ng-controller="MainController">
+
+  		    </div>
+        </div>
+
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
