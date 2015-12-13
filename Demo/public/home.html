@@ -23,6 +23,9 @@
 		#votedForHeading, #findACharityBtn{
 			background: green;
 		}
+		#logoutIcon{
+			color: green;
+		}
 	</style>
 
 	<div class="container">
@@ -31,6 +34,7 @@
 			<p></p>
 			<form role="search" method="get" action="list.html">
 				<div class="row">
+					<div class="col-md-11">
 						<div class="input-group input-group-lg">
 							<!-- <a href="home.html"><img src="img/home.png" style="width:45px;height:45px"></a> -->
 							<div class="input-group-btn">
@@ -40,9 +44,16 @@
 							<div class="input-group-btn">
 								<button class="btn btn-primary" id="button" type="submit" onclick="storeName();">Search</button>
 							</div>
+						</div>
+					</div>
+					<div class="col-md-1 col-lg-1 hidden-sm hidden-xs">
+						<a href="login.html" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-log-out" id="logoutIcon"></span> Logout</a>
+					</div>
+					<div class="col-xs-1 col-sm-1 hidden-md hidden-lg">
+						<a href="login.html" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-log-out" id="logoutIcon"></span></a>
+					</div>
 				</div>
-			</div>
-		</form>
+			</form>
 		</header>
 		<body onload="userInfo()">
 				<div class="row" id="user">
@@ -52,12 +63,12 @@
 						<span id="username"></span>
 					</p>
 					<hr>
-					<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="col-md-3 col-sm-6 col-xs-5">
 						<p><b>Full Name:</b> <span id="name"></span></p>
 						<p><b>Password: </b><span id="password" type="password"></span> </p>
 						<p><b>Email: </b><span id="email"></span></p>
 					</div>
-					<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="col-md-3 col-sm-6 col-xs-5">
 						<p><a href="Category.html" id="findACharityBtn" class="btn btn-primary btn-lg"/>Find a charity</a></p>
 						<p><button onclick="passwordChange();" class="btn btn-primary btn-lg"/>Change Password</button></p>
 						<p><button onclick="emailChange()" class="btn btn-primary btn-lg"/>Change Email</button></p>
