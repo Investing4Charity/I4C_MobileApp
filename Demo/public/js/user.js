@@ -61,7 +61,7 @@ function acceptLogin(){
 		if(msg == "Not Successful"){
 			alert("Incorrect Username or Password");
 		}else{
-			alert("Hi " + msg);
+			// alert("Hi " + msg);
 			sessionStorage.setItem("user", msg);
 			document.location.href = "home.html";
 		}

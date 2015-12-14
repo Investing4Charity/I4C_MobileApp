@@ -34,7 +34,7 @@ function receiveCat(appender){
 	socket.on('Reply Categories', function(msg){
 		// Print category
 			for(var i in msg){
-				$(appender).append('<li><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');" href="revenue.html">'
+				$(appender).append('<li class="list-group-item"><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');" href="revenue.html">'
 				+ msg[i].Sector + '</a></li>' + '\n');
 			}
 		socket.on('disconnect', function(){})
@@ -47,7 +47,7 @@ function receiveCatEdit(appender){
 	socket.on('Reply Categories', function(msg){
 		// Print category
 			for(var i in msg){
-				$(appender).append('<li><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');">'
+				$(appender).append('<li class="list-group-item"><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');">'
 				+ msg[i].Sector + '</a></li>' + '\n');
 			}
 		socket.on('disconnect', function(){})
