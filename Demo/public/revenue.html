@@ -1,28 +1,57 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="css/category.css">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<!-- <link rel="stylesheet" href="css/category.css"> -->
 		<script type="text/javascript" src="js/request.js"></script>
 		<script type="text/javascript" src="js/recieve.js"></script>
 		<script type="text/javascript" src="js/request.js"></script>
 		<script type="text/javascript" src="js/recieve.js"></script>
 		<script type="text/javascript" src="js/sessionStore.js"></script>
 	</head>
-	<header>
+
+	<script type="text/javascript">
+	$(function(){
+		$("#menu").load("menu.html");
+	});
+	</script>
+	<style type="text/css">
+		#menuTitle{
+			background: green;
+		}
+	</style>
+
+	<div id="menu"></div>
+	<!-- <header>
 		<form method="get" action="list.html">
 			<a href="home.html"><img src="img/home.png" style="width:45px;height:45px"></a>
 			<input id="searchBar" type="text" placeholder="Search...">
 			<input id="button" type="submit" value="Search" onclick="storeName();">
 		</form>
-	</header>
+	</header> -->
 	<body ng-app="myApp">
+		<div class="container">
 			<!-- When user clicks on an option gets Charities  -->
-			<div id='category'>
-				<ul>
-					<li id='menuTitle'><a id='menuText'>Enter Revenue</a></li>
-					<li><input id="revBar" type="text" placeholder="Revenue..."></li>
+			<div class="row" id='category'>
+				<ul class="list-group">
+					<h4 class="list-group-item active" id='menuTitle'><p id='menuText'>Enter Revenue (optional)</p></h4>
+					<div class="input-group">
+						<span class="input-group-addon">$</span>
+						<input class="form-control" id="revBar" type="text" placeholder="Revenue...">
+					</div>
 				</ul>
 			</div>
-			<a href="list.html" onclick="storeRev()" class="button"/>Next</a>
+			<a href="Category.html" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></button>
+			<a class="btn btn-default" href="list.html" onclick="storeRev()" class="button"/>Next</a>
+		</div>
 	</body>
 </html>
