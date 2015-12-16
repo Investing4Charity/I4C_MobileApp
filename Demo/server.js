@@ -53,7 +53,7 @@ io.on('connection', function(socket){
 		}
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {
-				console.log(Number(split[1]));
+				//console.log(Number(split[1]));
 				socket.emit('Reply List', rows);
 			}
 			else {
