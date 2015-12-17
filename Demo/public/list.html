@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="css/category.css">
-		<link rel="stylesheet" href="css/editOptions.css">
-		<link rel="stylesheet" href="css/voting.css">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
@@ -12,53 +19,117 @@
 		<script type="text/javascript" src="js/sessionStore.js"></script>
 		<script type="text/javascript" src="js/vote.js"></script>
 	</head>
-	<header>
-		<form method="get" action="list.html">
-			<a href="home.html"><img src="img/home.png" style="width:45px;height:45px"></a>
-			<input id="searchBar" type="text" placeholder="Search...">
-			<input id="button" type="submit" value="Search" onclick="storeName();">
-		</form>
-	</header>
-	<body ng-app="myApp" onload="getSelectedCat()">
-		<div class="media" id='category'>
-			<!-- List Of Charity -->
-			<ul class="list-group" id="result">
-				<li id='menuTitle'>
-					<div class="listHead">
-							<a id='menuText'>Charity Type: <span id="currentCategory"></span></a>
+
+	<script type="text/javascript">
+		var isShown = 0;
+		$(function(){
+			$("#menu").load("menu.html");
+		});
+
+		$(document).ready(function(){
+			if(isShown == 0){
+				$("#editBtn").click(function(){
+					$("#editOptions").fadeIn("slow");
+				});
+				isShown = 1;
+				return;
+			}
+			
+			else if(isShown == 1){
+				$("#editBtn").click(function(){
+					$("#editOptions").fadeOut("slow");
+				});
+				isShown = 0;
+				return;
+			}
+		});
+	</script>
+	<style type="text/css">
+		#menuTitle{
+			background: green;
+		}
+		#editOptions{
+			display: none;
+		}
+	</style>
+	<div class="container">
+		<body ng-app="myApp" onload="getSelectedCat()">
+			<div id="menu"></div>
+			<div class="media" id='category'>
+				<!-- List Of Charity -->
+				<ul class="list-group" id="result">
+					<li class="list-group-item active" id='menuTitle'>
+						<div class="row">
+							<div class="col-md-8 col-xs-7">
+								<h3>Search Results</h3>	
+							</div>
+							<div class="col-md-1 col-xs-3">
+								<div class="listHead">
+									<button class="btn btn-default" id="voteButtonhide" onclick="vote()">
+										Vote!
+									</button>
+								</div>
+							</div>
+							<div class="col-md-1 col-xs-1">
+								<button id="editBtn" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+							</div>
+						</div>
+					</li>
+					<div id="editOptions">
+						<div class="row">
+							<div class="col-md-6">
+								Categories
+								<div id="cat"></div>
+							</div>
+							<div class="col-md-6">
+								Revenue
+								<div class="input-group">
+									<span class="input-group-addon">$</span>
+									<input class="form-control" id="revBar" type="text">
+								</div>
+							</div>
+						</div>
+						<a class="btn btn-default" onclick="storeRev()" class="button"/>Next</a>
 					</div>
 
-					<div class="listHead">
-						<!-- Edit Options -->
-						<ul id="changeOp">
-							<li><a href="#">Edit Options</a>
-								<ul id="subMenu">
-									<li><a href="#">Change Categories</a>
-										<ul id="cat"></ul>
-									</li>
-									<li><a href="#">Enter Revenue</a>
-										<input id="revBar" type="text" placeholder="Revenue...">
-									<li>
-									<li><a onclick="storeRev()" class="button"/>Next</a></li>
-								</ul>
+					<li>
+						<p><---OLD CODE--->
+						<div class="listHead">
+								<a id='menuText'>Charity Type: <span id="currentCategory"></span></a>
+						</div>
 
-							</li>
-						</ul>
-					</div>
-					<div class="listHead"><button id="voteButtonhide" type="button" onclick="vote()">Vote!</button></div>
-				</li>
-			</ul>
-		</div>
-		<script>
-			<!-- Request List of category for edit option -->
-			sendSocketCat();
-			<!-- Request List Of Charity -->
-			sendSocketChar();
+						<div class="listHead">
+							<!-- Edit Options -->
+							<ul id="changeOp">
+								<li><a href="#">Edit Options</a>
+									<ul id="subMenu">
+										<li><a href="#">Change Categories</a>
+											<ul id="cat"></ul>
+										</li>
+										<li><a href="#">Enter Revenue</a>
+											<input id="revBar" type="text" placeholder="Revenue...">
+										<li>
+										<li><a onclick="storeRev()" class="button"/>Next</a></li>
+									</ul>
 
-			<!-- Receive From database and appends -->
-			receiveChar();
-			receiveCatEdit('#cat');
-			voteConfirmed();
-		</script>
-	</body>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<--OLD CODE -->
+				</ul>
+			</div>
+			<script>
+				<!-- Request List of category for edit option -->
+				sendSocketCat();
+				<!-- Request List Of Charity -->
+				sendSocketChar();
+
+				<!-- Receive From database and appends -->
+				receiveChar();
+				receiveCatEdit('#cat');
+				voteConfirmed();
+			</script>
+		</body>
+	</div>
 </html>

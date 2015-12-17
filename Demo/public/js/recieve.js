@@ -13,7 +13,7 @@ function receiveChar(){
 				if(src == null){
 					src = "img/Nologo.gif"
 				}
-				$('#result').append('<li class="list-group-item active" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
+				$('#result').append('<li class="list-group-item" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
 							'Name: ' + msg[i].Name_of_charity + '<br>Sector:' + msg[i].Sector +
 							'<img src="' + src + '" alt="Image Not Found" height="50px" width="auto">' +
 							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none">' +

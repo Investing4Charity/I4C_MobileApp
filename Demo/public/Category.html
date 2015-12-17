@@ -22,15 +22,6 @@
 		<script type="text/javascript" src="js/recieve.js"></script>
 		<script type="text/javascript" src="js/sessionStore.js"></script>
 	</head>
-	
-	<!-- Search Bar -->
-<!-- 	<header>
-		<form method="get" action="list.html">
-			<a href="home.html"><img src="img/home.png" style="width:45px;height:45px"></a>
-			<input id="searchBar" type="text" placeholder="Search...">
-			<input id="button" type="submit" value="Search" onclick="storeName();">
-		</form>
-	</header> -->
 
 	<style type="text/css">
 		#selectACategory{
@@ -38,6 +29,7 @@
 		}
 	</style>
 	
+	<!-- Search Bar -->
 	<script type="text/javascript">
 	$(function(){
 		$("#menu").load("menu.html");
@@ -45,8 +37,7 @@
 	</script>
 	<div class="container">
 		<body ng-app="myApp" onload="sendSocketCat();">
-			<div id="menu">
-			</div>
+			<div id="menu"></div>
 			<!-- When user clicks on an option gets Charities  -->
 			<div class="row" id='category'>
 					<!-- <li id='menuTitle'><a id='menuText'>Select A Category</a></li> -->
