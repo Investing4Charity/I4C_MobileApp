@@ -2,7 +2,7 @@
 function loading(){
 	setTimeout(function(){
 		document.location.href = "login.html";
-	},5000);
+	},2000);
 }
 function getSelectedCat(){
 	if( sessionStorage.getItem('category') == "null"){
@@ -19,8 +19,15 @@ function storeName(){
 }
 
 // Store category chosen
-function storeCat(val){
+function storeCat(val, index){
 	sessionStorage.setItem("category", val);
+	showCatSelection(index);
+}
+
+// Shows which category is selected
+function showCatSelection(index){
+	$("#cat").children().children().children().css("display", "none");
+	$("#cat"+index).children().children().css("display", "inline");
 }
 
 // Stores new revenue input by user in edit option

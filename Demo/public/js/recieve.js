@@ -4,7 +4,7 @@ function receiveChar(){
 	socket.on('Reply List', function(msg){
 		// No charities in selected category
 		if(msg[0] == null){
-			$('#result').append('<li id="content"><p>Oh no! No charities in this category</p></li>' + '\n');
+			$('#result').append('<li class="list-group-item" id="content"><p>Oh no! No charities in this category</p></li>' + '\n');
 
 		// Print charities in selected category
 		}else{
@@ -34,8 +34,8 @@ function receiveCat(appender){
 	socket.on('Reply Categories', function(msg){
 		// Print category
 			for(var i in msg){
-				$(appender).append('<li class="list-group-item"><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');" href="revenue.html">'
-				+ msg[i].Sector + '</a></li>' + '\n');
+				$(appender).append('<a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');" href="revenue.html"><li class="list-group-item">'
+				+ msg[i].Sector + '</li></a>' + '\n');
 			}
 		socket.on('disconnect', function(){})
 	});
@@ -45,15 +45,14 @@ function receiveCat(appender){
 function receiveCatEdit(appender){
 	var socket = io();
 	socket.on('Reply Categories', function(msg){
-		// Print category
+			// Print category
 			for(var i in msg){
-				$(appender).append('<li class="list-group-item"><a id="content" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ');">'
-				+ msg[i].Sector + '</a></li>' + '\n');
+				$(appender).append('<a class="catEdit" id="cat' + i + '" onclick="storeCat('+ "'" + msg[i].Sector +"'"  + ', ' + i +');"><li class="list-group-item">'
+				+ msg[i].Sector + ' <span class="glyphicon glyphicon-ok" style="display:none;"></span></li></a>' + '\n');
 			}
 		socket.on('disconnect', function(){})
 	});
 }
-
 
 // Receives search result
 function receiveSearch(){
@@ -61,7 +60,7 @@ function receiveSearch(){
 	socket.on('Reply Search', function(msg){
 		// No charities
 		if(msg[0] == null){
-			$('#result').append('<li><a>'+'There is no such charity</a></li>' + '\n');
+			$('#result').append('<li class="list-group-item"><a>'+'There is no such charity</a></li>' + '\n');
 
 		// Print charities that contained seach value
 		}else{

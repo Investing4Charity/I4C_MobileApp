@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>closest demo</title>
+  <style>
+  li {
+    margin: 3px;
+    padding: 3px;
+    background: #EEEEEE;
+  }
+  li.hilight {
+    background: yellow;
+  }
+  button {
+    display:none;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<ul>
+  <a class="list"><li>Click me!<button>meep</button></li></a>
+  <a class="list"><li>You can also Click me!<button>meep</button></li></a>
+  <a class="list"><li>You can Click me as well!<button>meep</button></li></a>
+</ul>
+ 
+<script>
+$(".list").on("click", function(event) {
+  $(".list").children().children().css("display","none");
+  $(event.target).closest("li").children().css("display","inline");
+
+  $(".list").children().css("color", "black");
+  $(event.target).closest("li").css("color", "blue");
+  //$( event.target ).closest( "li" ).toggleClass( "hilight" );
+});
+</script>
+ 
+</body>
+</html>

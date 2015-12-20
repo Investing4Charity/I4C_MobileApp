@@ -21,27 +21,14 @@
 	</head>
 
 	<script type="text/javascript">
-		var isShown = 0;
 		$(function(){
 			$("#menu").load("menu.html");
 		});
 
 		$(document).ready(function(){
-			if(isShown == 0){
-				$("#editBtn").click(function(){
-					$("#editOptions").fadeIn("slow");
-				});
-				isShown = 1;
-				return;
-			}
-			
-			else if(isShown == 1){
-				$("#editBtn").click(function(){
-					$("#editOptions").fadeOut("slow");
-				});
-				isShown = 0;
-				return;
-			}
+			$("#editBtn").click(function(){
+				$("#editOptions").toggle("slow");
+			});
 		});
 	</script>
 	<style type="text/css">
@@ -53,70 +40,46 @@
 		}
 	</style>
 	<div class="container">
-		<body ng-app="myApp" onload="getSelectedCat()">
+		<body ng-app="myApp" onload="getSelectedCat()"> 
 			<div id="menu"></div>
-			<div class="media" id='category'>
+			<div id='category'>
 				<!-- List Of Charity -->
 				<ul class="list-group" id="result">
-					<li class="list-group-item active" id='menuTitle'>
+					<h4 class="list-group-item active" id='menuTitle'>
+						Search Results
+						<p></p>
 						<div class="row">
-							<div class="col-md-8 col-xs-7">
-								<h3>Search Results</h3>	
+							<div class="col-md-3 col-xs-3">
+								<button class="btn btn-default btn-lg" id="voteButtonhide" onclick="vote()">
+								Vote!
+								</button>
 							</div>
-							<div class="col-md-1 col-xs-3">
-								<div class="listHead">
-									<button class="btn btn-default" id="voteButtonhide" onclick="vote()">
-										Vote!
-									</button>
-								</div>
-							</div>
-							<div class="col-md-1 col-xs-1">
-								<button id="editBtn" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+							<div class="col-md-3 col-xs-3">
+								<button id="editBtn" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-edit"></span> Edit</button>
 							</div>
 						</div>
-					</li>
+					</h4>	
 					<div id="editOptions">
-						<div class="row">
-							<div class="col-md-6">
-								Categories
-								<div id="cat"></div>
-							</div>
-							<div class="col-md-6">
-								Revenue
-								<div class="input-group">
-									<span class="input-group-addon">$</span>
-									<input class="form-control" id="revBar" type="text">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6">
+										Categories
+										<div id="cat"></div>
+									</div>
+									<div class="col-md-6">
+										Revenue
+										<div class="input-group">
+											<span class="input-group-addon">$</span>
+											<input class="form-control" id="revBar" type="text">
+										</div>
+									</div>
 								</div>
+								<p></p>
+								<a class="btn btn-lg btn-primary" onclick="storeRev()" class="button"/>Submit</a>
 							</div>
 						</div>
-						<a class="btn btn-default" onclick="storeRev()" class="button"/>Next</a>
 					</div>
-
-					<li>
-						<p><---OLD CODE--->
-						<div class="listHead">
-								<a id='menuText'>Charity Type: <span id="currentCategory"></span></a>
-						</div>
-
-						<div class="listHead">
-							<!-- Edit Options -->
-							<ul id="changeOp">
-								<li><a href="#">Edit Options</a>
-									<ul id="subMenu">
-										<li><a href="#">Change Categories</a>
-											<ul id="cat"></ul>
-										</li>
-										<li><a href="#">Enter Revenue</a>
-											<input id="revBar" type="text" placeholder="Revenue...">
-										<li>
-										<li><a onclick="storeRev()" class="button"/>Next</a></li>
-									</ul>
-
-								</li>
-							</ul>
-						</div>
-					</li>
-					<--OLD CODE -->
 				</ul>
 			</div>
 			<script>

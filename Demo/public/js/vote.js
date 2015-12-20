@@ -19,24 +19,26 @@ function charitySelect(charity){
 	document.getElementById(charityName).className = "selected";
 	var content = charity + "Content";
 	document.getElementById(content).style.display = 'block';
-	if(document.getElementById('voteButtonhide') != null){
-		document.getElementById('voteButtonhide').id = "voteButtondisplay";
-	}
+
+	// if(document.getElementById('voteButtonhide') != null){
+	// 	document.getElementById('voteButtonhide').id = "voteButtondisplay";
+	// }
 	storeCharVote(charity);
 }
 
 function vote(){
 	if(sessionStorage.getItem('vote') == null){
-		alert('Please select another charity to vote for');
+		alert('No charity selected');
 	}else if(confirm('Are you sure you want to vote for ' + sessionStorage.getItem('vote') + '?')){
 		var socket = io();
 		checkConnection();
 		var val = sessionStorage.getItem('vote') + ":" + sessionStorage.getItem('user');
 		console.log(val);
 		socket.emit('Vote', val);
-	}else{
-		alert('Please select another charity to vote for');
 	}
+	// else{
+		// alert('Please select another charity to vote for');
+	// }
 }
 
 function voteConfirmed(){

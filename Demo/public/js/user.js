@@ -67,3 +67,32 @@ function acceptLogin(){
 		}
 	});
 }
+
+function submitOnEnter () {
+	// Login screen
+	$("#passwordLogin, #usernameLogin").keypress(function(event) {
+	    if (event.which == 13) {
+	        login();
+	    }
+	});
+
+	$("#usernameSign, #name, #email, #passwordSign, #rePassword").keypress(function(event){
+		if(event.which == 13) {
+			signUp();
+		}
+	});
+
+	// Search bar at the top
+	$("#searchBar").keypress(function(event){
+		if(event.which == 13) {
+			storeName();
+		}
+	});
+
+	// Revenue screen
+	$("#revBar").keypress(function(event){
+		if(event.which == 13) {
+			storeRev();
+		}
+	});
+}

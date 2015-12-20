@@ -17,11 +17,41 @@
 		<script type="text/javascript" src="js/request.js"></script>
 		<script type="text/javascript" src="js/recieve.js"></script>
 		<script type="text/javascript" src="js/sessionStore.js"></script>
+		<script type="text/javascript" src="js/user.js"></script>
 	</head>
 
 	<script type="text/javascript">
 	$(function(){
 		$("#menu").load("menu.html");
+	});
+
+	submitOnEnter();
+
+	$(document).ready(function () {
+
+	$('#revBar').validate({
+	    rules: {
+	        name: {
+	            minlength: 2,
+	            required: true
+	        },
+	        email: {
+	            required: true,
+	            email: true
+	        },
+	        message: {
+	            minlength: 2,
+	            required: true
+	        }
+	    },
+	    highlight: function (element) {
+	        $(element).closest('.control-group').removeClass('success').addClass('error');
+	    },
+	    success: function (element) {
+	        element.text('OK!').addClass('valid')
+	            .closest('.control-group').removeClass('error').addClass('success');
+	    }
+	});
 	});
 	</script>
 	<style type="text/css">
@@ -44,10 +74,12 @@
 			<div class="row" id='category'>
 				<ul class="list-group">
 					<h4 class="list-group-item active" id='menuTitle'><p id='menuText'>Enter Revenue (optional)</p></h4>
-					<div class="input-group">
-						<span class="input-group-addon">$</span>
-						<input class="form-control" id="revBar" type="text">
-					</div>
+					<form>
+						<div class="input-group">
+							<span class="input-group-addon">$</span>
+							<input class="form-control" id="revBar" type="text">
+						</div>
+					</form>
 				</ul>
 			</div>
 			<a href="Category.html" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></button>
