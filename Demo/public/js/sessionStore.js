@@ -34,8 +34,13 @@ function showCatSelection(index){
 // Stores new revenue input by user in edit option
 function storeRev(){
 	var val = document.getElementById("revBar").value
+	alert("Revenue is not a valid number");
 	sessionStorage.setItem("revenue", val);
 	location.reload();
+}
+
+function isNumeric (num) {
+	return !isNaN(parseFloat(num)) && isFinite(num);
 }
 
 function storeCharVote(charity){
