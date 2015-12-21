@@ -1,5 +1,6 @@
 // animations for loading page
 function loading(){
+	checkConnection();
 	setTimeout(function(){
 		document.location.href = "login.html";
 	},2000);
