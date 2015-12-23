@@ -30,6 +30,7 @@
 				$("#editOptions").toggle("slow");
 			});
 		});
+
 	</script>
 	<style type="text/css">
 		#menuTitle{
@@ -68,11 +69,12 @@
 										<div id="cat"></div>
 									</div>
 									<div class="col-md-6">
-										Revenue
-										<div class="input-group">
-											<span class="input-group-addon">$</span>
-											<input class="form-control" id="revBar" type="text">
-										</div>
+										Revenue								<form onsubmit="storeRev()" action="list.html">
+											<div class="input-group">
+												<span class="input-group-addon">$</span>
+												<input class="form-control" id="revBar" type="text">
+											</div>
+										</form>
 									</div>
 								</div>
 								<p></p>
