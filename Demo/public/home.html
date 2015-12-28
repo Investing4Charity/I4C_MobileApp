@@ -61,10 +61,30 @@
 					<div id="emailChangeSuccess" class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok"></span> Email successfully changed!</div>
 
 					<h3>Personal Details</h3>
-					<p>
+					<p data-toggle="modal" data-target="#uploadPicPopup">
 						<img src="img/profile_pic.png"/>
 						<span id="username"></span>
 					</p>
+					<div class="modal fade bs-example-modal-sm" id="uploadPicPopup" tabindex="-1" role="dialog" aria-labelledby="uploadPicPopup">
+					 	<div class="modal-dialog modal-sm">
+					    	<div class="modal-content">
+					      		<div class="modal-header">
+					        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        		<h4 class="modal-title" id="myModalLabel">Change profile picture</h4>
+					      		</div>
+
+					      		<div class="modal-body">
+					      			<p> Upload a profile picture</p>
+					        		<input type="file"></input>
+					      		</div>
+
+					      		<div class="modal-footer">
+					        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        		<button id="emailSubmit" type="button" class="btn btn-primary" onclick="">Save changes</button>
+					      		</div>
+					    	</div>
+					  	</div>
+					</div>	
 					<hr>
 					<div class="col-md-3 col-sm-6 col-xs-5">
 						<p><b>Full Name:</b> <span id="name"></span></p>
@@ -72,7 +92,7 @@
 						<p><b>Email: </b><span id="email"></span></p>
 					</div>
 					<div class="col-md-3 col-sm-6 col-xs-5">
-						<p><a href="Category.html" id="findACharityBtn" class="btn btn-primary btn-lg"/>Find a charity</a></p>
+						<p><a href="Category.html" id="findACharityBtn" class="btn btn-primary btn-lg"/>Find by category</a></p>
 						<p><button onclick="passwordChange();" class="btn btn-primary btn-lg"/>Change Password</button></p>
 						<p><button onclick="emailChange()" class="btn btn-primary btn-lg"/>Change Email</button></p>
 
@@ -95,7 +115,7 @@
 
 				<!-- Experimental -->
 				<div class="modal fade bs-example-modal-sm" id="emailPopup" tabindex="-1" role="dialog" aria-labelledby="emailPopup">
-				 	<div class="modal-dialog modal-sm" role="document">
+				 	<div class="modal-dialog modal-sm">
 				    	<div class="modal-content">
 				      		<div class="modal-header">
 				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -108,9 +128,9 @@
 				      		</div>
 
 				      		<div class="modal-footer">
-				        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				        	<button id="emailSubmit" type="button" class="btn btn-primary" onclick="">Save changes</button>
-				      	</div>
+				        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        		<button id="emailSubmit" type="button" class="btn btn-primary" onclick="">Save changes</button>
+				      		</div>
 				    	</div>
 				  	</div>
 				</div>				
