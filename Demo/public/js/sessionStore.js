@@ -12,6 +12,11 @@ function getSelectedCat(){
 		document.getElementById('currentCategory').innerHTML = sessionStorage.getItem('category');	
 	}
 }
+
+function clearCharChoice() {
+	sessionStorage.setItem('vote', null);
+}
+
 // Used for searching for charity
 function storeName(){
 	var val = document.getElementById("searchBar").value;

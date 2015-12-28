@@ -27,12 +27,14 @@ function charitySelect(charity){
 }
 
 function vote(){
-	if(sessionStorage.getItem('vote') == null){
+	var charity = sessionStorage.getItem('vote');
+	if(charity == null || charity == "null"){
 		alert('No charity selected');
-	}else if(confirm('Are you sure you want to vote for ' + sessionStorage.getItem('vote') + '?')){
+	}
+	else if(confirm('Are you sure you want to vote for ' + charity + '?')){
 		var socket = io();
 		checkConnection();
-		var val = sessionStorage.getItem('vote') + ":" + sessionStorage.getItem('user');
+		var val = charity + ":" + sessionStorage.getItem('user');
 		console.log(val);
 		socket.emit('Vote', val);
 	}
