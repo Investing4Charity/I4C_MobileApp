@@ -23,6 +23,9 @@
 		#votedForHeading, #findACharityBtn{
 			background: green;
 		}
+		#emailChangeSuccess {
+			display: none;
+		}
 	</style>
 
 	<div class="container">
@@ -54,6 +57,9 @@
 		</header>
 		<body onload="userInfo()">
 				<div class="row" id="user">
+					<!-- Experimental -->
+					<div id="emailChangeSuccess" class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok"></span> Email successfully changed!</div>
+
 					<h3>Personal Details</h3>
 					<p>
 						<img src="img/profile_pic.png"/>
@@ -69,6 +75,10 @@
 						<p><a href="Category.html" id="findACharityBtn" class="btn btn-primary btn-lg"/>Find a charity</a></p>
 						<p><button onclick="passwordChange();" class="btn btn-primary btn-lg"/>Change Password</button></p>
 						<p><button onclick="emailChange()" class="btn btn-primary btn-lg"/>Change Email</button></p>
+
+						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#emailPopup">
+		  					Launch email demo modal
+						</button>
 					</div>
 				</div>
 				<script>
@@ -82,6 +92,50 @@
 					<ul class="list-group" id="result">
 					</ul>
 				</div>
+
+				<!-- Experimental -->
+				<div class="modal fade bs-example-modal-sm" id="emailPopup" tabindex="-1" role="dialog" aria-labelledby="emailPopup">
+				 	<div class="modal-dialog modal-sm" role="document">
+				    	<div class="modal-content">
+				      		<div class="modal-header">
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        		<h4 class="modal-title" id="myModalLabel">Change email</h4>
+				      		</div>
+
+				      		<div class="modal-body">
+				      			<p>Please enter your new email</p>
+				        		<input typ="text"></input>
+				      		</div>
+
+				      		<div class="modal-footer">
+				        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        	<button id="emailSubmit" type="button" class="btn btn-primary" onclick="">Save changes</button>
+				      	</div>
+				    	</div>
+				  	</div>
+				</div>				
+
+				<!-- Modal popup template -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				 	<div class="modal-dialog" role="document">
+				    	<div class="modal-content">
+				      		<div class="modal-header">
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        		<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				      		</div>
+
+				      		<div class="modal-body">
+				        		...
+				      		</div>
+
+				      		<div class="modal-footer">
+				        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        	<button type="button" class="btn btn-primary">Save changes</button>
+				      	</div>
+				    	</div>
+				  	</div>
+				</div>
+
 		</body>
 	</div>
 </html>

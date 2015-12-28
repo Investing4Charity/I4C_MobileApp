@@ -4,7 +4,8 @@ function receiveChar(){
 	socket.on('Reply List', function(msg){
 		// No charities in selected category
 		if(msg[0] == null){
-			$('#result').append('<li class="list-group-item" id="content"><p>Oh no! No charities in this category</p></li>' + '\n');
+			// $('#result').append('<li class="list-group-item" id="content"><p>Oh no! No charities in this category! </p></li>' + '\n');
+			$("#result").append('<div class="alert alert-warning" role="alert">Oh no! Your search returned no charities.</div>');
 
 		// Print charities in selected category
 		}else{

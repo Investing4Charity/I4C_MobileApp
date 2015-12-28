@@ -59,6 +59,7 @@ function emailChange(){
 			socket.emit('Change Email', val);
 			alert("Email has been changed");
 			location.reload();
+			$("#emailChangeSuccess").css("display", "block");
     	}
     } else{
 		alert("Email can't be empty");
