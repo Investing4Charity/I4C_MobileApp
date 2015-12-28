@@ -33,31 +33,35 @@ function userInfo(){
 }
 // Change Password
 function passwordChange(){
-	var password = prompt("Please enter your new password", "Password.....");
-    if (password != null) {
-		checkConnection();
-		var socket = io();
-		var val = password + ":" + sessionStorage.getItem('user');;
-		socket.emit('Change Password', val);
-		alert("Password has been changed");
-		location.reload();
-    }else{
-		alert("Password can't to empty");
+	var password = prompt("Please enter your new password", "");
+	if(password != ""){
+	    if (password != null) {
+			checkConnection();
+			var socket = io();
+			var val = password + ":" + sessionStorage.getItem('user');;
+			socket.emit('Change Password', val);
+			alert("Password has been changed");
+			location.reload();
+		}
+	} else {
+		alert("Password can't be empty");
 	}
 }
 
 //Change email
 function emailChange(){
-	var email = prompt("Please enter your new email", "Email.....");
-    if (email != null) {
-		checkConnection();
-		var socket = io();
-		var val = email + ":" + sessionStorage.getItem('user');;
-		socket.emit('Change Email', val);
-		alert("Email has been changed");
-		location.reload();
-    }else{
-		alert("Email can't to empty");
+	var email = prompt("Please enter your new email", "");
+    if(email != ""){
+    	if (email != null) {
+			checkConnection();
+			var socket = io();
+			var val = email + ":" + sessionStorage.getItem('user');
+			socket.emit('Change Email', val);
+			alert("Email has been changed");
+			location.reload();
+    	}
+    } else{
+		alert("Email can't be empty");
 	}
 }
 
