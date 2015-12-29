@@ -29,15 +29,21 @@
 
 	$(document).ready(function () {
 		// Number validation
-		// Called when key is pressed in textbox
-  		// $("#revBar").keypress(function (e) {
-    //  		// If the letter is not digit then display error and don't type anything
-	   //   	if (e.which != 13 && e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-	   //      	// Display error message
-	   //      	$("#errmsg").html("Digits Only").show().fadeOut("slow");
-	   //      	return false;
-	   // 		}
-   	// 	});
+		//Called when key is pressed in textbox
+  		$("#revBar").keypress(function (e) {
+     		// If the letter is not digit then display error and don't type anything
+     		if(e.which == 13){
+     			$(function(){
+     				storeRev();
+     			});
+     		}
+
+	     // 	if (e.which != 13 && e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+	     //    	// Display error message
+	     //    	$("#errmsg").html("Digits Only").show().fadeOut("slow");
+	     //    	return false;
+	   		// }
+   		});
 	});
 	</script>
 	<style type="text/css">
