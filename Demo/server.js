@@ -49,7 +49,7 @@ io.on('connection', function(socket){
 			var strQuery = "SELECT * FROM " + databaseName + ".charity_list WHERE Sector = '" +msg +"'";
 		}else{
 			var split = msg.split(":",2);
-			var strQuery = "SELECT * FROM " + databaseName + ".charity_list WHERE Sector = '" + split[0] +"' AND total_revenues >= " + Number(split[1]);
+			var strQuery = "SELECT * FROM " + databaseName + ".charity_list WHERE Sector = '" + split[0] +"' AND total_revenues >= " + parseInt(split[1]);
 		}
 		connection.query(strQuery, function(err, rows, fields) {
 			if(!err) {

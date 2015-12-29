@@ -14,7 +14,7 @@ function receiveChar(){
 				if(src == null){
 					src = "img/Nologo.gif"
 				}
-				$('#result').append('<li class="list-group-item" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
+				$('#result').append('<div class="list-group-item" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
 							'Name: ' + msg[i].Name_of_charity + '<br>Sector:' + msg[i].Sector +
 							'<img src="' + src + '" alt="Image Not Found" height="50px" width="auto">' +
 							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none">' +
@@ -22,7 +22,7 @@ function receiveChar(){
 							'<div class="Revenue"><b>Revenue: </b>' + msg[i].total_revenues +'</div>' +
 							'<div class="Kpi"><b>KPI: </b>' + msg[i].KPI_E_CAPEXTotal_Revenue + '</div>' +
 							'<div class="Grants"><b>Grants: </b>' + msg[i].Gov_Grants +'</div>' +
-							'<div class="Growth"><b>Growth: </b>' + msg[i].net_income_growth + '</div></div></li>' + '\n')
+							'<div class="Growth"><b>Growth: </b>' + msg[i].net_income_growth + '</div></div></div>' + '\n')
 			}
 		}
 		socket.on('disconnect', function(){})
@@ -102,7 +102,7 @@ function receiveVoteChar(){
 				if(src == null){
 					src = "img/Nologo.gif"
 				}
-				$('#result').append('<li class="list-group-item" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
+				$('#result').append('<div class="list-group-item" id="'+ "'" + msg[i].Name_of_charity +"'"  + '" onclick="charitySelect('+ "'" + msg[i].Name_of_charity +"'"  + ');"><p>' +
 							'Name: ' + msg[i].Name_of_charity + '<br>Sector:' + msg[i].Sector +
 							'<img src="' + src + '" alt="Image Not Found" height="50px" width="auto">' +
 							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none">' +
@@ -110,7 +110,7 @@ function receiveVoteChar(){
 							'<div class="Revenue"><b>Revenue: </b>' + msg[i].total_revenues +'</div>' +
 							'<div class="Kpi"><b>KPI: </b>' + msg[i].KPI_E_CAPEXTotal_Revenue + '</div>' +
 							'<div class="Grants"><b>Grants: </b>' + msg[i].Gov_Grants +'</div>' +
-							'<div class="Growth"><b>Growth: </b>' + msg[i].net_income_growth + '</div></div></li>' + '\n')
+							'<div class="Growth"><b>Growth: </b>' + msg[i].net_income_growth + '</div></div></div>' + '\n')
 			}
 		}
 		socket.on('disconnect', function(){})

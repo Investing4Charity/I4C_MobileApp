@@ -38,9 +38,15 @@ function showCatSelection(index){
 
 // Stores new revenue input by user in edit option
 function storeRev(){
-	var val = document.getElementById("revBar").value
+	var val = document.getElementById("revBar").value;
 	sessionStorage.setItem("revenue", val);
-	location.reload();
+	var isnum = /^\d+$/.test(sessionStorage.getItem("revenue"));
+		if(isnum || val.length == 0){
+			window.location.href ="list.html";
+			console.log(val);
+		}else{
+			alert("Please Enter number");
+		}
 }
 
 function isNumeric (num) {

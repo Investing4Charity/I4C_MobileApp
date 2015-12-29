@@ -10,15 +10,22 @@
 					</div>
 					<input type="text" placeholder="Search..." class="form-control" id="searchBar"/>
 					<div class="input-group-btn">
-						<button class="btn btn-primary" id="button" type="submit" onclick="storeName();">Search</button>
+						<div class="hidden-xs hidden-sm">
+							<button class="btn btn-lg btn-primary" id="button" type="submit" onclick="storeName();">Search</button>
+						</div>
+						<div class="hidden-lg hidden-md">
+							<button class="btn btn-lg btn-primary" id="button" type="submit" onclick="storeName();">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</div>
+					</div>
+					<div class="col-md-1 col-lg-1 hidden-sm hidden-xs">
+						<a href="login.html" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-log-out" id="logoutIcon"></span> Logout</a>
+					</div>
+					<div class="col-xs-1 col-sm-1 hidden-md hidden-lg">
+						<a href="login.html" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-log-out" id="logoutIcon"></span></a>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-1 col-lg-1 hidden-sm hidden-xs">
-				<a href="login.html" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-log-out" id="logoutIcon"></span> Logout</a>
-			</div>
-			<div class="col-xs-1 col-sm-1 hidden-md hidden-lg">
-				<a href="login.html" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-log-out" id="logoutIcon"></span></a>
 			</div>
 		</div>
 	</form>

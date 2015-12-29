@@ -90,17 +90,17 @@ function submitOnEnter () {
 	});
 
 	// Revenue screen
-	$("#revBar").keypress(function(event){
-		if(event.which == 13) {
-			storeRev();
-		}
-		else {
-			// Number validation
-			if (event.which != 8 && event.which != 0 && (event.which < 48 || event.which > 57)) {
-		        	// Display error message
-		        	$("#errmsg").html("Digits Only").show().fadeOut("slow");
-		        	return false;
-		   	}
-		}
-	});
+	// $("#revBar").keypress(function(event){
+	// 	if(event.which == 13) {
+	// 		storeRev();
+	// 	}
+	// 	else {
+	// 		// Number validation
+	// 		if (event.which != 8 && event.which != 0 && (event.which < 48 || event.which > 57)) {
+	// 	        	// Display error message
+	// 	        	$("#errmsg").html("Digits Only").show().fadeOut("slow");
+	// 	        	return false;
+	// 	   	}
+	// 	}
+	// });
 }

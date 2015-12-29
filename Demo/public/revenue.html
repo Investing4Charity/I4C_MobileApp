@@ -30,14 +30,14 @@
 	$(document).ready(function () {
 		// Number validation
 		// Called when key is pressed in textbox
-  		$("#revBar").keypress(function (e) {
-     		// If the letter is not digit then display error and don't type anything
-	     	if (e.which != 13 && e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-	        	// Display error message
-	        	$("#errmsg").html("Digits Only").show().fadeOut("slow");
-	        	return false;
-	   		}
-   		});
+  		// $("#revBar").keypress(function (e) {
+    //  		// If the letter is not digit then display error and don't type anything
+	   //   	if (e.which != 13 && e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+	   //      	// Display error message
+	   //      	$("#errmsg").html("Digits Only").show().fadeOut("slow");
+	   //      	return false;
+	   // 		}
+   	// 	});
 	});
 	</script>
 	<style type="text/css">
@@ -46,13 +46,6 @@
 		}
 	</style>
 
-	<!-- <header>
-		<form method="get" action="list.html">
-			<a href="home.html"><img src="img/home.png" style="width:45px;height:45px"></a>
-			<input id="searchBar" type="text" placeholder="Search...">
-			<input id="button" type="submit" value="Search" onclick="storeName();">
-		</form>
-	</header> -->
 	<div class="container">		
 		<body ng-app="myApp">
 			<div id="menu"></div>
@@ -62,17 +55,17 @@
 					<h4 class="list-group-item active" id='menuTitle'>
 						<p id='menuText'>Enter Revenue (optional)</p>
 					</h4>
-					<form onsubmit="storeRev()" action="list.html" id="revForm">
+					<!-- <form onsubmit="storeRev()" action="list.html" id="revForm"> -->
 						<div class="input-group">
 							<span class="input-group-addon">$</span>
 							<input class="form-control" id="revBar" type="text" name="number">
 						</div>
 						<span id="errmsg"></span>
-					</form>
+					<!-- </form> -->
 				</ul>
 			</div>
 			<a href="Category.html" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-chevron-left"></span></button>
-			<a class="btn btn-default btn-lg" href="list.html" onclick="storeRev()" class="button"/>Next</a>
+			<a class="btn btn-default btn-lg" onclick="storeRev()" class="button"/>Next</a>
 		</body>
 	</div>
 </html>

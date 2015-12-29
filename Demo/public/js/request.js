@@ -10,6 +10,8 @@ function sendSocketChar(){
 	// Send to socket for server
 	checkConnection();
 	var socket = io();
+
+	// For search bar
 	if(sessionStorage.getItem('category') == "null"){
 		var val = sessionStorage.getItem('charityName');
 		socket.emit('Get Search', val);
@@ -59,7 +61,9 @@ function emailChange(){
 			socket.emit('Change Email', val);
 			alert("Email has been changed");
 			location.reload();
-			$("#emailChangeSuccess").css("display", "block");
+			$(document).ready(function(){
+				$("#emailChangeSuccess").show();
+			});
     	}
     } else{
 		alert("Email can't be empty");
