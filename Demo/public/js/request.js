@@ -33,6 +33,7 @@ function userInfo(){
 	var val = sessionStorage.getItem('user');
 	socket.emit('User Info', val);
 }
+
 // Change Password
 function passwordChange(){
 	var password = prompt("Please enter your new password", "");
@@ -59,15 +60,42 @@ function emailChange(){
 			var socket = io();
 			var val = email + ":" + sessionStorage.getItem('user');
 			socket.emit('Change Email', val);
-			alert("Email has been changed");
-			location.reload();
-			$(document).ready(function(){
+			// console.log("Reloading..");
+			location.reload(); 
+			// window.location.href="home.html";
+			// console.log("Reloaded");
+			// $(window).load(function(){
+				// $("#emailChangeSuccess").show();
+			// });
+			// console.log("Done");
+
+			// document.getElementById('emailChangeSuccess').style.display = 'block';
+			// alert("Email has been changed");
+			// $(window).unload(function(){
+			// });
+			// $(document).promise().done(function() {
+			// 	$("#emailChangeSuccess").show();
+			// });
+
+			// $(document).ready(function(){
+			// 	location.reload();
+			// 	console.log("done!");
+			// 	// alert("Ready!");
+			// 	setTimeout(function(){
+			// 		console.log("Ready!");
+			// 	}, 5000);
+			// });
+				
+			$.when($.ajax(location.reload())).promise().done(function(){
 				$("#emailChangeSuccess").show();
 			});
     	}
     } else{
 		alert("Email can't be empty");
 	}
+
+	// $(document).ready(function(){
+	// });
 }
 
 // Sends request for list of voted charities

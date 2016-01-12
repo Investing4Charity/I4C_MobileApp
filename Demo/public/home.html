@@ -74,7 +74,7 @@
 					<hr>
 					<div class="col-md-3 col-sm-6 col-xs-5">
 						<p><b>Full Name:</b> <span id="name"></span></p>
-						<p><b>Password: </b><span id="password" type="password"></span> </p>
+						<!-- <p><b>Password: </b><span id="password" type="password"></span> </p> -->
 						<p><b>Email: </b><span id="email"></span></p>
 					</div>
 					<div class="col-md-3 col-sm-6 col-xs-5">
@@ -82,9 +82,12 @@
 						<p><button onclick="passwordChange();" class="btn btn-primary btn-lg"/>Change Password</button></p>
 						<p><button onclick="emailChange()" class="btn btn-primary btn-lg"/>Change Email</button></p>
 
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#emailPopup">
-		  					Launch email demo modal
-						</button>
+						<!-- Experimental -->
+						<div style="display:none;">
+							<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#emailPopup">
+			  					Launch email demo modal
+							</button>
+						</div>
 					</div>
 				</div>
 				<script>
