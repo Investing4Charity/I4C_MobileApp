@@ -4,7 +4,7 @@ CREATE TABLE charity_list(
   ,Name_of_charity                               VARCHAR(50) NOT NULL PRIMARY KEY
   ,Financial_year                                INTEGER NOT NULL
   ,Gov_Grants                                    INTEGER NOT NULL
-  ,Fundrasing_income                             INTEGER NOT NULL
+  ,Fundraising_income                            INTEGER NOT NULL
   ,total_revenues                                INTEGER NOT NULL
   ,Cost_of_fundraising                           INTEGER NOT NULL
   ,Employee_Benefits_Exp                         INTEGER NOT NULL
