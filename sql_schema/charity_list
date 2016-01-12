@@ -18,9 +18,9 @@ CREATE TABLE charity_list(
   ,KPI_D_professional_service_costtotal_cost     NUMERIC(5,3)
   ,KPI_E_CAPEXTotal_Revenue                      NUMERIC(5,3)
   # Percent
-  ,net_income_growth                             INTEGER NOT NULL
+  ,net_income_growth                             NUMERIC(5,3) NOT NULL
   # Percent
-  ,gov_funding_growth_                           INTEGER
+  ,gov_funding_growth_                           NUMERIC(5,3) NOT NULL
   ,vote_count                                    INTEGER
   ,logo                                          LONGBLOB  
 );
