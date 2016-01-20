@@ -19,10 +19,10 @@ function receiveChar(){
 							'<img src="' + src + '" alt="Image Not Found" height="50px" width="auto">' +
 							'</p><div id="' + msg[i].Name_of_charity + 'Content" style="display:none">' +
 							'<div class="summary"><h3>Summary</h3> This is a summary of ' + msg[i].Name_of_charity + '</div>'+
-							'<div class="Revenue"><b>Revenue: </b>' + msg[i].total_revenues +'</div>' +
+							'<div class="Revenue"><b>Revenue: </b> $' + msg[i].total_revenues +'</div>' +
 							'<div class="Kpi"><b>KPI: </b>' + msg[i].KPI_E_CAPEXTotal_Revenue + '</div>' +
-							'<div class="Grants"><b>Grants: </b>' + msg[i].Gov_Grants +'</div>' +
-							'<div class="Growth"><b>Growth: </b>' + msg[i].net_income_growth + '</div></div></div>' + '\n')
+							'<div class="Grants"><b>Grants: </b> $' + msg[i].Gov_Grants +'</div>' +
+							'<div class="Growth"><b>Growth: </b>' + msg[i].net_income_growth + '%</div></div></div>' + '\n')
 			}
 		}
 		socket.on('disconnect', function(){})
