@@ -1,0 +1,2 @@
+1. Execute code "CREATE DATABASE I4CApp; USE I4CApp;"
+2. Run scripts charities.user_votes, charity_list, charity_list-sample_data and users in sql_schema folder
