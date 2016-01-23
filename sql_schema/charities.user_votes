@@ -1,4 +1,4 @@
-CREATE TABLE I4CTest.user_votes(
+CREATE TABLE user_votes(
 	user VARCHAR(50) NOT NULL,
     charity VARCHAR(50) NOT NULL,
     CONSTRAINT pk_user_vote PRIMARY KEY (user,charity),
