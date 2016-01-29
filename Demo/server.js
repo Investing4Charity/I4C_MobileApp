@@ -19,6 +19,8 @@ console.log('Connecting to the database');
 connection.connect(function(err) {
 	if (err) {
 		console.error("error connecting: " + err.stack);
+		console.log("**********************");
+		console.log("Check internet connection and MySQL database");
 		return;
 	}
 	
