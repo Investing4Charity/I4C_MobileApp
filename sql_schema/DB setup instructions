@@ -1,0 +1,3 @@
+1. Execute code "CREATE DATABASE I4CApp; USE I4CApp;"
+2. Run scripts charities.user_votes, charity_list, charity_list-sample_data and users in sql_schema folder
+(We'll leave the charity_previous_finance script for now, need to clean that up and wait on the meeting with charity analysts to decide if it's relevant)
