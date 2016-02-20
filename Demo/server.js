@@ -2,13 +2,13 @@
 var mysql = require('mysql');
 var path = require("path");
 var express = require('express');
-var databaseName = "I4CTest";
+var databaseName = "I4CApp";
 
 // object that holds connection details
 var connection = mysql.createConnection({
-	host : 'localhost',
-	user : 'test',
-	password: 'test123456',
+	host : 'i4cdb.cu1tzf3zeuyw.ap-southeast-2.rds.amazonaws.com',
+	user : 'i4c_user',
+	password: 'mypassword',
 }); 
 var app = express();
 var http = require('http').Server(app);
